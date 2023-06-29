@@ -1,2 +1,2 @@
-# PrivateTutoring_FrontEnd
-Private Tutoring - Front End - Angular
+# PrivateTutoring_Client
+Private Tutoring - Front End - Client - Angular
