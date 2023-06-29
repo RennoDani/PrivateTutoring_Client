@@ -16,14 +16,20 @@ export class AdminAddUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.userForm = new FormGroup({
-      nameUser: new FormControl(),
+      nameUser: new FormControl(
+        null,
+        [Validators.required]
+      ),
       emailUser: new FormControl(
         null,
         [Validators.required, Validators.email]
       ),
       phoneUser: new FormControl(),
       dateBirthUser: new FormControl(),
-      profileUser: new FormControl()
+      profileUser: new FormControl(
+        null,
+        [Validators.required]
+      )
     });
   }
 

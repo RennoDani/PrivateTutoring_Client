@@ -23,6 +23,7 @@ import { AdminNotesAddComponent } from './classNotes/admin-notes-add/admin-notes
 import { AdminNotesEditComponent } from './classNotes/admin-notes-edit/admin-notes-edit.component';
 import { AdminViewUserComponent } from './user/admin-view-user/admin-view-user.component';
 import { LoginComponent } from './login/login/login.component';
+import { ResetpasswordComponent } from './login/resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { LoginComponent } from './login/login/login.component';
     AdminNotesAddComponent,
     AdminNotesEditComponent,
     AdminViewUserComponent,
-    LoginComponent
+    LoginComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,

@@ -18,25 +18,27 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.logInForm = new FormGroup({
-      emailLogin: new FormControl(),
-      passwordLogin: new FormControl()
+      emailLogin: new FormControl(
+        null,
+        [Validators.required, Validators.email]
+      ),
+      passwordLogin: new FormControl(
+        null,
+        [Validators.required]
+      )
     });
   }
 
 
   onLogIn() {
     //console.log('on LogIn');
-    this.loginSrv.LogIn(this.logInForm.value).subscribe(response => {
-      
+    this.loginSrv.LogIn(this.logInForm.value).subscribe(response => {      
       console.log('return Login ',response);      
 
       if(response.login){
         //console.log('Login successfully!');
-
         this.login = response;
-
         console.log(response.message);
-
         this.logInForm.reset();
 
       }else{

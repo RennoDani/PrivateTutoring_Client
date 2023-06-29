@@ -8,18 +8,23 @@
                 <div class="form-group">
                     <label for="emailLogin">E-mail</label>
                     <input type="text" id="emailLogin" formControlName="emailLogin" class="form-control">
+                    <span *ngIf="!logInForm.get('emailLogin').valid && logInForm.get('emailLogin').touched"
+                    class="help-block"> Please enter a valid email ! </span>
                 </div>
 
                 <div class="form-group">
                     <label for="passwordLogin">Password</label>
-                    <input type="text" id="passwordLogin" formControlName="passwordLogin" class="form-control">
+                    <input type="password" id="passwordLogin" formControlName="passwordLogin" class="form-control">
                 </div>
 
-                <!-- <br><br>
-                <span *ngIf="!logInForm.valid && logInForm.touched" class="help-block">Please enter valid
+                <a [routerLink]="['/resetpassword']">Forgot Password?</a>
+                <br>
+                <!--<br><br>
+                 <span *ngIf="!logInForm.valid && logInForm.touched" class="help-block">Please enter valid
                     data!</span> -->
 
-                <button class="btn btn-primary" type="submit">LogIn</button>
+                <button class="btn btn-primary" type="submit" [disabled]="!logInForm.valid">LogIn</button>
+
 
             </form>
         </div>
