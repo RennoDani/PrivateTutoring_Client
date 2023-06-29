@@ -1,0 +1,48 @@
+<html>
+
+<div class="container">
+    <h4>Add User</h4>
+    <div class="row">
+        <div class="col-6">
+            <form [formGroup]="userForm" (ngSubmit)="onAddUser()">
+                <div class="form-group">
+                    <label for="nameUser">Name</label>
+                    <input type="text" id="nameUser" formControlName="nameUser" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="emailUser">E-mail</label>
+                    <input type="text" id="emailUser" formControlName="emailUser" class="form-control">
+
+                    <span *ngIf="!userForm.get('emailUser').valid && userForm.get('emailUser').touched"
+                    class="help-block"> Please enter a valid email ! </span>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneUser">Phone</label>
+                    <input type="text" id="phoneUser" formControlName="phoneUser" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="dateBirthUser">Date of Birth</label>
+                    <input type="text" id="dateBirthUser" formControlName="dateBirthUser" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="profileUser">Profile</label>
+                    <input type="text" id="profileUser" formControlName="profileUser" class="form-control">
+                </div>
+
+                <br><br>
+                <span *ngIf="!userForm.valid && userForm.touched" class="help-block">Please enter valid
+                    data!</span>
+
+                <button class="btn btn-primary" type="submit">Add User</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</html>

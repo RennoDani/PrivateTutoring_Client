@@ -1,0 +1,39 @@
+<html>
+    <div class="container">
+        <h4>Contact Us</h4>
+        <div class="row">
+            <div class="col-8">
+                <form [formGroup]="contactForm" (ngSubmit)="onAdd()">
+                    <div class="form-group">
+                        <label for="nameContact">Name</label>
+                        <input type="text" id="nameContact" formControlName="nameContact" class="form-control">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="emailContact">Email</label>
+                        <input type="text" id="emailContact" formControlName="emailContact" class="form-control">
+    
+                        <span *ngIf="!contactForm.get('emailContact').valid && contactForm.get('emailContact').touched"
+                            class="help-block">Please enter a valid email!</span>
+    
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="phoneContact">Phone</label>
+                        <input type="text" id="phoneContact" formControlName="phoneContact" class="form-control">
+                    </div>
+    
+                    <div class="form-group">
+                        <label for="messageContact">Message</label>
+                        <input type="text" id="messageContact" formControlName="messageContact" class="form-control">
+                    </div>
+    
+                    <br><br>
+                    <span *ngIf="!contactForm.valid && contactForm.touched" class="help-block">Please enter valid
+                        data!</span>
+                    <button class="btn btn-primary" type="submit">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</html>
