@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -24,6 +25,7 @@ import { AdminNotesEditComponent } from './classNotes/admin-notes-edit/admin-not
 import { AdminViewUserComponent } from './user/admin-view-user/admin-view-user.component';
 import { LoginComponent } from './login/login/login.component';
 import { ResetpasswordComponent } from './login/resetpassword/resetpassword.component';
+import { ViewerPdfComponent } from './viewer-pdf/viewer-pdf.component';
 
 
 @NgModule({
@@ -46,14 +48,16 @@ import { ResetpasswordComponent } from './login/resetpassword/resetpassword.comp
     AdminNotesEditComponent,
     AdminViewUserComponent,
     LoginComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    ViewerPdfComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxExtendedPdfViewerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

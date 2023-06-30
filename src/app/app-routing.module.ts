@@ -7,11 +7,16 @@ import { AdminViewUserComponent } from './user/admin-view-user/admin-view-user.c
 import { LoginComponent } from './login/login/login.component';
 import { AdminAddUserComponent } from './user/admin-add-user/admin-add-user.component';
 import { ResetpasswordComponent } from './login/resetpassword/resetpassword.component';
+import { ViewerPdfComponent } from './viewer-pdf/viewer-pdf.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'aboutus', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent },
+
+  { path: 'lessons', component: ViewerPdfComponent },
+  //{ path: 'lessons', component: ExamplePdfViewerComponent },
+
   { path: 'login', component: LoginComponent },
 
   { path: 'resetpassword', component: ResetpasswordComponent },

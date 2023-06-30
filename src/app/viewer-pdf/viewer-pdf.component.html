@@ -1,0 +1,31 @@
+<html>
+<p>viewer-pdf works!</p>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <ngx-extended-pdf-viewer 
+            
+                [src]="'/assets/pdfs/HTML5_15minutes.pdf.pdf'" 
+                [height]="'90%'"
+                [useBrowserLocale]="true" 
+                [textLayer]="true" 
+                [showHandToolButton]="true"
+                [showPresentationModeButton]="true" 
+                [showPrintButton]="false" 
+                [showRotateButton]="false"
+                [showOpenFileButton]="false"
+                [showDownloadButton]="false"
+                [showSidebarButton]="true"
+                >
+            </ngx-extended-pdf-viewer>
+        </div>
+    </div>
+</div>
+
+
+<!-- [showToolbar]="false" -->
+
+
+</html>
