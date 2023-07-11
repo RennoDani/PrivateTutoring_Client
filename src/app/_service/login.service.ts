@@ -13,10 +13,10 @@ export class LoginService {
   private apiUrl = 'http://localhost:3000';
 
   LogIn(login: Ilogin): Observable<any>{
-    return this.http.post(`${this.apiUrl}/postLogIn`, login);
+    return this.http.post(`${this.apiUrl}/auth/postLogIn`, login);
   }
 
   ResetPassword(login: Ilogin): Observable<any>{
-    return this.http.post(`${this.apiUrl}/postResetPassword`, login);
+    return this.http.post(`${this.apiUrl}/auth/postResetPassword`, login);
   }
 }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Ilogin } from 'src/app/_model/login.model';
+import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { LoginService } from 'src/app/_service/login.service';
 
 @Component({
@@ -10,7 +12,11 @@ import { LoginService } from 'src/app/_service/login.service';
 })
 export class LoginComponent {
 
-  constructor(private loginSrv: LoginService) { }
+  constructor(
+    private loginSrv: LoginService,
+    private authSrv: AuthenticationService,
+    private router_login: Router
+    ) { }
 
   logInForm: FormGroup;
   login : Ilogin;
@@ -19,11 +25,11 @@ export class LoginComponent {
   ngOnInit(): void {
     this.logInForm = new FormGroup({
       emailLogin: new FormControl(
-        null,
+        'admin@email.com',//null,
         [Validators.required, Validators.email]
       ),
       passwordLogin: new FormControl(
-        null,
+        'QzP2nf',//null,
         [Validators.required]
       )
     });
@@ -31,15 +37,20 @@ export class LoginComponent {
 
 
   onLogIn() {
-    //console.log('on LogIn');
+    //console.log('on LogIn',this.logInForm.value);
     this.loginSrv.LogIn(this.logInForm.value).subscribe(response => {      
-      console.log('return Login ',response);      
-
+      
       if(response.login){
-        //console.log('Login successfully!');
+        console.log('Login successfully!');
+
+        //localStorage.setItem('token', response.token);
+        this.authSrv.setToken(response.token);
+
         this.login = response;
         console.log(response.message);
         this.logInForm.reset();
+
+        this.router_login.navigate(['/dashboardAdmin']);
 
       }else{
         //console.log('Invalid Email or Password!');

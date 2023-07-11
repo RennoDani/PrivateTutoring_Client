@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 
 
@@ -15,7 +15,7 @@ import { StudentMenuComponent } from './menu/student-menu/student-menu.component
 import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashboard.component';
 import { StudentDashboardComponent } from './dashboard/student-dashboard/student-dashboard.component';
 import { AboutUsComponent } from './landingPage/about-us/about-us.component';
-import { ContactComponent } from './landingPage/contact/contact.component';
+import { ContactComponent } from './contactus/contact/contact.component';
 import { AdminAddUserComponent } from './user/admin-add-user/admin-add-user.component';
 import { AdminEditUserComponent } from './user/admin-edit-user/admin-edit-user.component';
 import { AdminNotesComponent } from './classNotes/admin-notes/admin-notes.component';
@@ -26,6 +26,11 @@ import { AdminViewUserComponent } from './user/admin-view-user/admin-view-user.c
 import { LoginComponent } from './login/login/login.component';
 import { ResetpasswordComponent } from './login/resetpassword/resetpassword.component';
 import { ViewerPdfComponent } from './viewer-pdf/viewer-pdf.component';
+import { AddLessonComponent } from './lesson/add-lesson/add-lesson.component';
+import { EditLessonComponent } from './lesson/edit-lesson/edit-lesson.component';
+import { ViewLessonComponent } from './lesson/view-lesson/view-lesson.component';
+import { AuthenticationService } from './_service/authentication.service';
+import { AuthInterceptorService } from './_service/auth-interceptor.service';
 
 
 @NgModule({
@@ -49,7 +54,10 @@ import { ViewerPdfComponent } from './viewer-pdf/viewer-pdf.component';
     AdminViewUserComponent,
     LoginComponent,
     ResetpasswordComponent,
-    ViewerPdfComponent
+    ViewerPdfComponent,
+    AddLessonComponent,
+    EditLessonComponent,
+    ViewLessonComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +67,10 @@ import { ViewerPdfComponent } from './viewer-pdf/viewer-pdf.component';
     HttpClientModule,
     NgxExtendedPdfViewerModule
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

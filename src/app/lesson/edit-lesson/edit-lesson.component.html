@@ -1,0 +1,71 @@
+<!-- <p>edit-lesson works!</p> -->
+
+
+
+<html>
+<h4>Edit Lesson</h4>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <!-- <form [formGroup]="lessonForm" (ngSubmit)="onAddLesson()"> -->
+            <div class="form-group">
+                <label for="typeLesson">Type</label>
+                <input type="text" id="typeLesson" formControlName="typeLesson" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="tittleLesson">Title</label>
+                <input type="text" id="tittleLesson" formControlName="tittleLesson" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="levelLesson">Level</label>
+                <input type="text" id="levelLesson" formControlName="levelLesson" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="fileLesson">File (PDF)</label>
+                <input type="text" id="fileLesson" formControlName="fileLesson" class="form-control">
+            </div>
+
+            <div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="card">
+                            <button type="button" class="btn btn-outline-secondary" routerLink="viewpdf">Viewer PDF Lesson</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <br><br>
+
+            <div class="form-group">
+                <label for="studentLesson">Students</label>
+                <input type="text" id="studentLesson" formControlName="studentLesson" class="form-control">
+                <button>+</button>
+
+                <div class="card" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Student AAA</li>
+                        <li class="list-group-item">Student BBB</li>
+                        <li class="list-group-item">Student CCC</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <br><br>
+            <!-- <span *ngIf="!lessonForm.valid && lessonForm.touched" class="help-block">Please enter valid
+                        data!</span> -->
+            <button class="btn btn-primary" type="submit">Save</button>
+            <!-- </form> -->
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
