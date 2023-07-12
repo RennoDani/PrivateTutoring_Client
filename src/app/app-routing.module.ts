@@ -19,17 +19,20 @@ const routes: Routes = [
   // { path: 'aboutus', component: AboutUsComponent },
   { path: 'contact', component: ContactComponent },
 
-  {
-    path: 'dashboardAdmin', component: AdminDashboardComponent, children: [
-      { path: 'user', component: AdminAddUserComponent },
-      { path: 'viewuser', component: AdminViewUserComponent },
-      { path: 'edituser', component: AdminEditUserComponent },
-      { path: 'lesson', component: AddLessonComponent },
-      { path: 'viewlesson', component: ViewLessonComponent },
-      { path: 'editlesson', component: EditLessonComponent },
-      
-    ]
-  },
+  { path: 'dashboardAdmin', component: AdminDashboardComponent,children: [   
+    { path: 'user', component: AdminAddUserComponent },
+    { path: 'viewuser', component: AdminViewUserComponent,children:[
+      { path: ':id', component: AdminEditUserComponent },
+    ] },
+    
+    { path: 'lesson', component: AddLessonComponent },
+    { path: 'viewlesson', component: ViewLessonComponent },
+    { path: 'editlesson', component: EditLessonComponent },
+
+   ] },
+  
+
+
 
   { path: 'viewerpdf', component: ViewerPdfComponent },
 

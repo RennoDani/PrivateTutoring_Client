@@ -1,1 +1,55 @@
-<p>admin-view-user works!</p>
+<html>
+<div class="container">
+    <div class="table-responsive" *ngIf="displayUsers">
+        <form (ngSubmit)="onGet()">            
+            <table class="table table-striped table-bordered">
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Phone</th>
+                        <th>Date of birth</th>
+                        <th>Profile</th>
+                        <th>Active?</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let u of userList">
+                        <th scope="row">1</th>
+                        <td> {{u.iduser}} </td>
+                        <td> {{u.name}} </td>
+                        <td> {{u.email}} </td>
+                        <td> {{u.phone}} </td>
+                        <td> {{u.datebirth}} </td>
+                        <td> {{u.profile}} </td>
+                        <td> yes or no </td>
+
+                        <td> <button type="button" [routerLink]="[u.iduser]" (click)="onEdit()">edit</button> </td>
+
+                        <td> <button type="button" (click)="onDelete(u.iduser)">del</button> </td>
+                    </tr>
+                </tbody>
+
+                <!-- <tfoot>
+                    <td>...</td>
+                    <td>....</td>
+                    <td>..</td>
+
+                </tfoot> -->
+            </table>
+
+        </form>
+    </div>
+</div>
+
+<div *ngIf="!displayUsers">
+    <router-outlet></router-outlet>
+</div>
+
+</html>
