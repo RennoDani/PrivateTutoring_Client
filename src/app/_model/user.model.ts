@@ -4,5 +4,6 @@ export interface Iuser{
     email ?: any,
     phone ?: any,
     datebirth ?: any,
-    profile ?: any
+    profile ?: any,
+    active ?: any
 }

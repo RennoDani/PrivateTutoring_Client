@@ -16,7 +16,9 @@ export class LoginService {
     return this.http.post(`${this.apiUrl}/auth/postLogIn`, login);
   }
 
-  ResetPassword(login: Ilogin): Observable<any>{
+  ResetPassword(login: Ilogin): Observable<any>{    
+    //console.log('login service - login: ',login);
     return this.http.post(`${this.apiUrl}/auth/postResetPassword`, login);
   }
+
 }

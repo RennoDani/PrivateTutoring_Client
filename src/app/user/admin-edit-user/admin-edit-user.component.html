@@ -7,10 +7,10 @@
     <div class="row">
         <div class="col-6">
             <form [formGroup]="editUserForm" (ngSubmit)="onEdituser()">
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="idUser">Id</label>
-                    <input type="text" id="idUser" formControlName="idUser" class="form-control" >
-                </div>
+                    <input type="text" id="idUser" formControlName="idUser" class="form-control">
+                </div> -->
 
                 <div class="form-group">
                     <label for="nameUser">Name</label>
@@ -20,10 +20,6 @@
                 <div class="form-group">
                     <label for="emailUser">E-mail</label>
                     <input type="text" id="emailUser" formControlName="emailUser" class="form-control" >
-
-                    <!-- <span *ngIf="!userForm.get('emailUser').valid && userForm.get('emailUser').touched"
-                    class="help-block"> Please enter a valid email ! </span> -->
-
                 </div>
 
                 <div class="form-group">
@@ -46,12 +42,13 @@
 
                 <div class="form-group">
                     <label for="activeUser">Active?</label>
+                    <!-- <input type="text" id="activeUser" formControlName="activeUser" class="form-control"> -->
                     <div class="row">
                         <div class="col-1">
-                            <input type="radio" id="activeUser" formControlName="activeUser" class="form-control" value="y" >Yes
+                            <input type="radio" id="activeUserYes" formControlName="activeUser" class="form-control form-check-input" value="Y" >Yes
                         </div>
                         <div class="col-1">
-                            <input type="radio" id="activeUser" formControlName="activeUser" class="form-control" value="n" >No
+                            <input type="radio" id="activeUserNo" formControlName="activeUser" class="form-control form-check-input" value="N" >No
                         </div>
                     </div>
                 </div>
@@ -60,10 +57,9 @@
                 <!-- <span *ngIf="!userForm.valid && userForm.touched" class="help-block">Please enter valid
                     data!</span> -->
 
-                <!-- <button class="btn btn-primary" type="submit" >Save User</button> -->
 
+                <button class="btn btn-warning" type="button" (click)="onResetPassword()">Reset Password</button>
                 <button class="btn btn-primary" type="submit" [disabled]="!editUserForm.valid">Save User</button>
-                <button class="btn btn-light" type="submit" (click)="onBack()">Back view user</button>
 
             </form>
         </div>

@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Iuser } from 'src/app/_model/user.model';
 import { UserService } from 'src/app/_service/user.service';
@@ -9,7 +10,8 @@ import { UserService } from 'src/app/_service/user.service';
 })
 export class AdminViewUserComponent implements OnInit {
 
-  constructor(private userSrv: UserService) { }
+  constructor(private userSrv: UserService,
+    private location: Location) { }
 
   displayUsers = true;
 
@@ -30,10 +32,10 @@ export class AdminViewUserComponent implements OnInit {
     this.displayUsers = false;
   }
 
-  onDelete(id: any) {
-    // this.userSrv.deleteUser(id).subscribe(response => {
-    //   console.log('delete');
-    // });
+  onBack(){
+    this.location.back();
+    this.displayUsers = true;
+    this.onGet();
   }
 
 }

@@ -14,8 +14,7 @@
                         <th>Date of birth</th>
                         <th>Profile</th>
                         <th>Active?</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th>Edit</th>                       
                     </tr>
                 </thead>
 
@@ -28,11 +27,10 @@
                         <td> {{u.phone}} </td>
                         <td> {{u.datebirth}} </td>
                         <td> {{u.profile}} </td>
-                        <td> yes or no </td>
+                        <td> {{u.active}} </td>
 
                         <td> <button type="button" [routerLink]="[u.iduser]" (click)="onEdit()">edit</button> </td>
-
-                        <td> <button type="button" (click)="onDelete(u.iduser)">del</button> </td>
+                        
                     </tr>
                 </tbody>
 
@@ -50,6 +48,7 @@
 
 <div *ngIf="!displayUsers">
     <router-outlet></router-outlet>
+    <button class="btn btn-dark" type="submit" (click)="onBack()">Back view user</button>
 </div>
 
 </html>

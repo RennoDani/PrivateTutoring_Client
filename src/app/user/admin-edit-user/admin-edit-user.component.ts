@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Ilogin } from 'src/app/_model/login.model';
 import { Iuser } from 'src/app/_model/user.model';
+import { LoginService } from 'src/app/_service/login.service';
 import { UserService } from 'src/app/_service/user.service';
 
 @Component({
@@ -14,10 +16,11 @@ export class AdminEditUserComponent implements OnInit {
   editUserForm: FormGroup;
   user: Iuser[] = [];
   iduser: any;
+  login: Ilogin;
 
-  constructor(private route_edit: ActivatedRoute, 
-    private router: Router,
-    private userSrv: UserService) { }
+  constructor(private route_edit: ActivatedRoute,
+    private userSrv: UserService,
+    private loginSrv: LoginService) { }
 
   ngOnInit(): void {
 
@@ -48,38 +51,52 @@ export class AdminEditUserComponent implements OnInit {
         phoneUser: this.user[0].phone,
         dateBirthUser: this.user[0].datebirth,
         profileUser: this.user[0].profile,
-        activeUser: 'yes'
+        activeUser: this.user[0].active
       });
 
       //or
       // this.editUserForm.controls['idUser'].setValue(user.idUser);
 
+      //this.editUserForm.get('idUser').disable();
+      this.editUserForm.get('emailUser').disable();
+      this.editUserForm.get('profileUser').disable();
 
     });
   }
 
-  //const selectedOption = this.editUserForm.get('activeUser').value;
-  //selectOptionActive = this.editUserForm.get('activeUser').value;
-
-
-
-  //onEdit(user: Iuser){
   onEdituser() {
     console.log('edit user - this.editUserForm.value: ', this.editUserForm.value);
 
     this.userSrv.editUser(this.editUserForm.value).subscribe(response => {
-      //console.log('User successfully saved!');
-
-      console.log('return onEdituser ', response);
+      //console.log('return onEdituser ', response);
       console.log(response.message);
     });
 
-    
-
   };
 
-  onBack(){
-    this.router.navigate['viewuser'];
+
+
+
+  onResetPassword() {
+    const login: Ilogin = {
+      email: this.editUserForm.get('emailUser').value
+    };
+
+    // this.login.email = this.editUserForm.get('emailUser').value;
+
+    this.loginSrv.ResetPassword(login).subscribe(response => {
+      console.log('onResetPassword ', response);
+    })
+
+
+    //console.log('edit user - reset password - this.emailLoginReset', this.emailLoginReset);
+
+    // this.userSrv.resetPasswordUser(this.emailLoginReset).subscribe(response => {
+    //   console.log('edit user - return reset password ', response);
+    // })
+    // if(response.sucess){
+
+    // }
   }
 
 }

@@ -16,7 +16,7 @@ import { ViewLessonComponent } from './lesson/view-lesson/view-lesson.component'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  // { path: 'aboutus', component: AboutUsComponent },
+
   { path: 'contact', component: ContactComponent },
 
   { path: 'dashboardAdmin', component: AdminDashboardComponent,children: [   
@@ -31,8 +31,6 @@ const routes: Routes = [
 
    ] },
   
-
-
 
   { path: 'viewerpdf', component: ViewerPdfComponent },
 

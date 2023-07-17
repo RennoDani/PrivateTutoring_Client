@@ -23,4 +23,8 @@ export class ContactService {
     return this.http.post(`${this.apiUrl}/Contact`, contact);
   }
 
+  //  deleteContact(id: any): Observable<any> {
+//     return this.http.delete(`${this.apiUrl}/Contact/delete/`+id, null);
+//   }
+
 }
