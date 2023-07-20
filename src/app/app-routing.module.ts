@@ -13,21 +13,31 @@ import { AdminEditUserComponent } from './user/admin-edit-user/admin-edit-user.c
 import { AddLessonComponent } from './lesson/add-lesson/add-lesson.component';
 import { EditLessonComponent } from './lesson/edit-lesson/edit-lesson.component';
 import { ViewLessonComponent } from './lesson/view-lesson/view-lesson.component';
+import { QuizComponent } from './quiz/quiz.component';
+import { QuestionComponent } from './quiz/question/question.component';
+import { AnswerComponent } from './quiz/answer/answer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
 
   { path: 'contact', component: ContactComponent },
 
-  { path: 'dashboardAdmin', component: AdminDashboardComponent,children: [   
+  { path: 'dashboardAdmin', component: AdminDashboardComponent,children: [  
+     
     { path: 'user', component: AdminAddUserComponent },
     { path: 'viewuser', component: AdminViewUserComponent,children:[
       { path: ':id', component: AdminEditUserComponent },
     ] },
     
     { path: 'lesson', component: AddLessonComponent },
-    { path: 'viewlesson', component: ViewLessonComponent },
-    { path: 'editlesson', component: EditLessonComponent },
+    { path: 'viewlesson', component: ViewLessonComponent,children:[
+      { path: ':id', component: EditLessonComponent },
+    ] },
+    
+
+    { path: 'quiz', component: QuizComponent },
+    { path: 'question', component: QuestionComponent },
+    { path: 'answer', component: AnswerComponent },
 
    ] },
   

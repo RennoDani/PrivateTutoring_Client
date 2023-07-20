@@ -1,7 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Ilesson } from 'src/app/_model/lesson.model';
+//import { Ilesson } from 'src/app/_model/lesson.model';
+import { Ilevel } from 'src/app/_model/level.model';
+import { Itype } from 'src/app/_model/type.model';
 import { LessonService } from 'src/app/_service/lesson.service';
 
 @Component({
@@ -17,10 +19,14 @@ export class AddLessonComponent implements OnInit {
 
   lessonForm: FormGroup;
   selectedFile: any = '';
-  lesson : Ilesson;
+  //lesson : Ilesson;
+  typeList: Itype[] = [];
+  levelList: Ilevel[] = [];
 
   ngOnInit() {
-
+    this.onGetType();
+    this.onGetLevel();
+    
     this.lessonForm = new FormGroup({      
       titleLesson: new FormControl(
         null,
@@ -73,5 +79,16 @@ export class AddLessonComponent implements OnInit {
   }
 
 
+  onGetType(){
+    this.lessonSrv.getType().subscribe(response => {
+      this.typeList = response;
+    })
+  }
+
+  onGetLevel(){
+    this.lessonSrv.getLevel().subscribe(response => {
+      this.levelList = response;
+    })
+  }
 
 }

@@ -31,6 +31,10 @@ import { EditLessonComponent } from './lesson/edit-lesson/edit-lesson.component'
 import { ViewLessonComponent } from './lesson/view-lesson/view-lesson.component';
 import { AuthenticationService } from './_service/authentication.service';
 import { AuthInterceptorService } from './_service/auth-interceptor.service';
+import { QuizComponent } from './quiz/quiz.component';
+import { QuestionComponent } from './quiz/question/question.component';
+import { AnswerComponent } from './quiz/answer/answer.component';
+import { SearchPipe } from './_pipe/search.pipe';
 
 
 @NgModule({
@@ -57,7 +61,11 @@ import { AuthInterceptorService } from './_service/auth-interceptor.service';
     ViewerPdfComponent,
     AddLessonComponent,
     EditLessonComponent,
-    ViewLessonComponent
+    ViewLessonComponent,
+    QuizComponent,
+    QuestionComponent,
+    AnswerComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

@@ -13,7 +13,7 @@ export class AdminViewUserComponent implements OnInit {
   constructor(private userSrv: UserService,
     private location: Location) { }
 
-  displayUsers = true;
+  displayUsers: boolean = true;
 
   userList: Iuser[] = [];
 

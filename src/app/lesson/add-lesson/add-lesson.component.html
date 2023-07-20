@@ -14,11 +14,9 @@
                     <div class="form-group">
                         <label for="typeLesson">Type</label>
                         <!-- <input type="text" id="typeLesson" formControlName="typeLesson" class="form-control"> -->
-                        <select id="typeLesson" formControlName="typeLesson" class="form-control">
-                            <option value="L">Listening</option>
-                            <option value="R">Reading</option>
-                            <option value="S">Speaking</option>
-                            <option value="W">Writing</option>
+                        <select id="typeLesson" formControlName="typeLesson" class="form-control">                            
+                                <option value="">Select a type</option>
+                                <option *ngFor="let t of typeList" value="{{t.type}}">{{t.description}}</option>
                         </select>
                     </div>
 
@@ -26,9 +24,8 @@
                         <label for="levelLesson">Level</label>
                         <!-- <input type="text" id="levelLesson" formControlName="levelLesson" class="form-control"> -->
                         <select type="text" id="levelLesson" formControlName="levelLesson" class="form-control">
-                            <option value="B">Basic</option>
-                            <option value="I">Intermediate</option>
-                            <option value="A">Advanced</option>
+                            <option value="">Select a level</option>
+                            <option *ngFor="let l of levelList" value="{{l.level}}">{{l.description}}</option>
                         </select>
                     </div>
 

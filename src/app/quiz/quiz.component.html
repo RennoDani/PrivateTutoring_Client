@@ -1,0 +1,8 @@
+<form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
+    <ng-container formArrayName="questions">
+      <div *ngFor="let question of questions.controls; let i = index" class="question">
+        <app-question [questionGroup]="question" [index]="i"></app-question>
+      </div>
+    </ng-container>
+    <button type="submit">Submit Quiz</button>
+  </form>

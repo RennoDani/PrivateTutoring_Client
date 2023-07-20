@@ -3,82 +3,57 @@
 
 <html>
 <h4>View Lesson</h4>
-<div class="container">
+<div class="container" *ngIf="displayLesson">
     <div class="row">
-        <div class="col">
-            <span>Search</span><input type="text">
-            <span>Student</span><input type="search">
+        <div class="col-4">
+            <input type="search" [(ngModel)]="searchText" placeholder="Title">
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <span>Type</span><input type="search">
-            <span>Level</span><input type="search">
+        <div class="col-4">
+            <select [(ngModel)]="searchType" placeholder="Type">
+                <option value="">Select a type</option>
+                <option *ngFor="let t of typeList" value="{{t.description}}">{{t.description}}</option>
+            </select>
+        </div>
+        <div class="col-4">
+            <select [(ngModel)]="searchLevel" placeholder="Level">
+                <option value="">Select a level</option>
+                <option *ngFor="let l of levelList" value="{{l.description}}">{{l.description}}</option>
+            </select>
+        </div>
+        <!-- <div class="col-3">
+            <input type="search" [(ngModel)]="searchStudent" placeholder="Student">
+        </div> -->
+        <div class="col-2"><button type="reset">Clear</button></div>
 
-        </div>
     </div>
 
     <br><br>
 
-    <div class="row">
-        <div class="card-group">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Title....</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Level xxx</h6>
-                    <p class="card-text">Type xxx</p>
-                    <a href="#" class="card-link">Card link</a>
-                </div>
-            </div>
 
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col"
+            *ngFor="let l of lessonList | search: searchText: 'title' | search: searchType: 'type' | search: searchLevel: 'level' ">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Title....</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Level xxx</h6>
-                    <p class="card-text">Type xxx</p>
-                    <a href="#" class="card-link">Card link</a>
-                </div>
-            </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{l.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">{{l.type}}</h6>
+                        <p class="card-text">{{l.level}} ID: {{l.idlesson}}</p>
+                        
+                        <!-- <a href="#" class="card-link">Edit</a> -->
+                        
+                        <button type="button" [routerLink]="[l.idlesson]" (click)="onEdit()">edit</button>
 
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Title....</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Level xxx</h6>
-                    <p class="card-text">Type xxx</p>
-                    <a href="#" class="card-link">Card link</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Title....</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Level xxx</h6>
-                    <p class="card-text">Type xxx</p>
-                    <a href="#" class="card-link">Card link</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Title....</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Level xxx</h6>
-                    <p class="card-text">Type xxx</p>
-                    <a href="#" class="card-link">Card link</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Title....</h5>
-                    <h6 class="card-subtitle mb-2 text-body-secondary">Level xxx</h6>
-                    <p class="card-text">Type xxx</p>
-                    <a href="#" class="card-link">Card link</a>
+                    </div>
                 </div>
             </div>
         </div>
-
     </div>
+</div>
 
+<div *ngIf="!displayLesson">
+    <router-outlet></router-outlet>
+    <button class="btn btn-dark" type="submit" (click)="onBack()">Back view user</button>
 </div>
 
 </html>
