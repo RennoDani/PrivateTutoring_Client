@@ -38,10 +38,10 @@
                     <div class="card-body">
                         <h5 class="card-title">{{l.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-body-secondary">{{l.type}}</h6>
-                        <p class="card-text">{{l.level}} ID: {{l.idlesson}}</p>
+                        <p class="card-text">{{l.level}}</p>
                         
                         <!-- <a href="#" class="card-link">Edit</a> -->
-                        
+                        <p>ID: {{l.idlesson}}</p>
                         <button type="button" [routerLink]="[l.idlesson]" (click)="onEdit()">edit</button>
 
                     </div>

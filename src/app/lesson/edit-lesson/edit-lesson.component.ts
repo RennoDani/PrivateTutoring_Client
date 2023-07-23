@@ -60,18 +60,20 @@ export class EditLessonComponent implements OnInit {
 
 
     this.lessonSrv.getIdLesson(this.idlesson).subscribe(response => {
+
       this.lesson = response;
-      console.log('edit lessson - response: ', response);
+
+      //console.log('edit lessson - response: ', response);
+
+      this.lessonForm.patchValue({
+        idLesson: this.lesson[0].idlesson,
+        titleLesson: this.lesson[0].title,
+        typeLesson: this.lesson[0].type,
+        levelLesson: this.lesson[0].level,
+        fileLesson: this.lesson[0].filepath
+      });
+
     });
-
-    // this.lessonForm.patchValue({
-    //   idLesson : this.lesson[0].idlesson,
-    //   titleLesson: this.lesson[0].title,
-    //   typeLesson: this.lesson[0].type,
-    //   levelLesson: this.lesson[0].level,
-    //   fileLesson: this.lesson[0].filepath
-    // });
-
   }
 
   onFileSelected(event: any) {
@@ -81,11 +83,18 @@ export class EditLessonComponent implements OnInit {
   onEditLesson() {
     const formData = new FormData();
 
+    formData.append('idlesson', this.lessonForm.get('idLesson').value);
     formData.append('title', this.lessonForm.get('titleLesson').value);
     formData.append('type', this.lessonForm.get('typeLesson').value);
     formData.append('level', this.lessonForm.get('levelLesson').value);
-    formData.append('filepath', this.selectedFile);
+    //formData.append('filepath', this.selectedFile);
 
+    this.lessonSrv.editLesson(formData).subscribe(response => {
+      // if (response.sucess) {
+      //   this.lessonForm.reset();
+      // }
+      console.log(response.message);
+    })
 
   }
 
@@ -102,10 +111,10 @@ export class EditLessonComponent implements OnInit {
   }
 
   onGetPDF() {
-    
-console.log('filepath: ',this.lesson[0].filepath);
-    
-      this.lessonSrv.getPDF(this.lesson[0].filepath).subscribe((data: ArrayBuffer) => {
+
+    console.log('filepath: ', this.lesson[0].filepath);
+
+    this.lessonSrv.getPDF(this.lesson[0].filepath).subscribe((data: ArrayBuffer) => {
       // Convert the response data to a Blob and create a URL for it
       const blob = new Blob([data], { type: 'application/pdf' });
       const url = window.URL.createObjectURL(blob);

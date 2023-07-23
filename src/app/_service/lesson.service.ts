@@ -18,6 +18,11 @@ export class LessonService {
     return this.http.post(`${this.apiUrl}/Lesson`, lesson);
   }
 
+  editLesson(lesson: any): Observable<any>{
+    return this.http.put(`${this.apiUrl}/Lesson`, lesson);
+  }
+
+
   getAllLesson(): Observable<Ilesson[]>{
     return this.http.get<Ilesson[]>(`${this.apiUrl}/Lesson`);
   }

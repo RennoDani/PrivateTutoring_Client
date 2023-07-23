@@ -1,7 +1,5 @@
-//import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-//import { Ilesson } from 'src/app/_model/lesson.model';
 import { Ilevel } from 'src/app/_model/level.model';
 import { Itype } from 'src/app/_model/type.model';
 import { LessonService } from 'src/app/_service/lesson.service';
@@ -19,7 +17,6 @@ export class AddLessonComponent implements OnInit {
 
   lessonForm: FormGroup;
   selectedFile: any = '';
-  //lesson : Ilesson;
   typeList: Itype[] = [];
   levelList: Ilevel[] = [];
 
@@ -53,12 +50,6 @@ export class AddLessonComponent implements OnInit {
 
 
   onAddLesson(){
-    // this.lesson = {
-    //   title: this.lessonForm.get('titleLesson').value,
-    //   type: this.lessonForm.get('typeLesson').value,
-    //   level: this.lessonForm.get('levelLesson').value,
-    //   filepath: this.selectedFile
-    // };
 
     const formData = new FormData();
 
@@ -67,7 +58,7 @@ export class AddLessonComponent implements OnInit {
     formData.append('level',this.lessonForm.get('levelLesson').value);
     formData.append('filepath',this.selectedFile);
 
-    console.log('add lesson ',formData);
+//    console.log('add lesson ',formData);
 
     this.lessonSrv.addLesson(formData).subscribe(response => {
       if (response.sucess) {

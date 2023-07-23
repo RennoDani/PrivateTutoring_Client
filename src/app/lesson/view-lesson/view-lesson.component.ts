@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Ilesson } from 'src/app/_model/lesson.model';
 import { Ilevel } from 'src/app/_model/level.model';
@@ -10,11 +11,10 @@ import { LessonService } from 'src/app/_service/lesson.service';
   styleUrls: ['./view-lesson.component.css']
 })
 export class ViewLessonComponent implements OnInit{
-  location: any;
 
-  constructor(private lessonSrv: LessonService){
-
-  }
+  constructor(private lessonSrv: LessonService,
+    private location: Location){  }
+    
   displayLesson: boolean = true;
 
   lessonList: Ilesson[] = [];
