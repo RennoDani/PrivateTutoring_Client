@@ -1,22 +1,28 @@
 <!-- <p>add-lesson works!</p> -->
 
 <html>
-    <div class="container">
-        <h4>Add Lesson</h4>
+<div class="container">
+    <div class="t-form-container">
         <div class="row">
-            <div class="col-8">
+            <div class="col t-form t-form-title">
+                <h4>Lesson</h4>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col t-form">
                 <form [formGroup]="lessonForm" (ngSubmit)="onAddLesson()">
                     <div class="form-group">
                         <label for="titleLesson">Title</label>
-                        <input type="text" id="titleLesson" formControlName="titleLesson" class="form-control">   
+                        <input type="text" id="titleLesson" formControlName="titleLesson" class="form-control">
                     </div>
 
                     <div class="form-group">
                         <label for="typeLesson">Type</label>
                         <!-- <input type="text" id="typeLesson" formControlName="typeLesson" class="form-control"> -->
-                        <select id="typeLesson" formControlName="typeLesson" class="form-control">                            
-                                <option value="">Select a type</option>
-                                <option *ngFor="let t of typeList" value="{{t.type}}">{{t.description}}</option>
+                        <select id="typeLesson" formControlName="typeLesson" class="form-control">
+                            <option value="">Select a type</option>
+                            <option *ngFor="let t of typeList" value="{{t.type}}">{{t.description}}</option>
                         </select>
                     </div>
 
@@ -31,16 +37,21 @@
 
                     <div class="form-group">
                         <label for="fileLesson">File (PDF)</label>
-                        <input type="file" (change)="onFileSelected($event)" id="fileLesson" formControlName="fileLesson" class="form-control">
+                        <input type="file" (change)="onFileSelected($event)" id="fileLesson"
+                            formControlName="fileLesson" class="form-control">
                     </div>
 
-                    <br><br>
                     <!-- <span *ngIf="!lessonForm.valid && lessonForm.touched" class="help-block">Please enter valid
                         data!</span> -->
-                    <button class="btn btn-primary" type="submit">Add Lesson</button>
+
+                    <div class="col t-button-right">
+                        <button class="btn btn-primary" type="submit">Add</button>
+                    </div>
+
                 </form>
             </div>
         </div>
     </div>
-</html>
+</div>
 
+</html>

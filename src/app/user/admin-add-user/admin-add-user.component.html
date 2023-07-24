@@ -1,50 +1,58 @@
 <html>
 
 <div class="container">
-    <h4>Add User</h4>
-    <div class="row">
-        <div class="col-6">
-            <form [formGroup]="userForm" (ngSubmit)="onAddUser()">
-                <div class="form-group">
-                    <label for="nameUser">Name</label>
-                    <input type="text" id="nameUser" formControlName="nameUser" class="form-control">
-                </div>
+    <div class="t-form-container">
+        <div class="row">
+            <div class="col t-form t-form-title">
+                <h4>User</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col t-form">
+                <form [formGroup]="userForm" (ngSubmit)="onAddUser()">
+                    <div class="form-group">
+                        <label for="nameUser">Name</label>
+                        <input type="text" id="nameUser" formControlName="nameUser" class="form-control">
+                    </div>
 
-                <div class="form-group">
-                    <label for="emailUser">E-mail</label>
-                    <input type="text" id="emailUser" formControlName="emailUser" class="form-control">
+                    <div class="form-group">
+                        <label for="emailUser">E-mail</label>
+                        <input type="text" id="emailUser" formControlName="emailUser" class="form-control">
 
-                    <span *ngIf="!userForm.get('emailUser').valid && userForm.get('emailUser').touched"
-                    class="help-block"> Please enter a valid email ! </span>
+                        <span *ngIf="!userForm.get('emailUser').valid && userForm.get('emailUser').touched"
+                            class="help-block"> Please enter a valid email ! </span>
 
-                </div>
+                    </div>
 
-                <div class="form-group">
-                    <label for="phoneUser">Phone</label>
-                    <input type="text" id="phoneUser" formControlName="phoneUser" class="form-control">
-                </div>
+                    <div class="form-group">
+                        <label for="phoneUser">Phone</label>
+                        <input type="text" id="phoneUser" formControlName="phoneUser" class="form-control">
+                    </div>
 
-                <div class="form-group">
-                    <label for="dateBirthUser">Date of Birth</label>
-                    <input type="text" id="dateBirthUser" formControlName="dateBirthUser" class="form-control">
-                </div>
+                    <div class="form-group">
+                        <label for="dateBirthUser">Date of Birth</label>
+                        <input type="text" id="dateBirthUser" formControlName="dateBirthUser" class="form-control">
+                    </div>
 
-                <div class="form-group">
-                    <label for="profileUser">Profile</label>                    
-                    <!-- <input type="text" id="profileUser" formControlName="profileUser" class="form-control" > -->
-                    <select id="profileUser" formControlName="profileUser" class="form-control">
-                        <option value="student" selected>Student</option>
-                    </select>
+                    <div class="form-group">
+                        <label for="profileUser">Profile</label>
+                        <!-- <input type="text" id="profileUser" formControlName="profileUser" class="form-control" > -->
+                        <select id="profileUser" formControlName="profileUser" class="form-control">
+                            <option value="student" selected>Student</option>
+                        </select>
+                    </div>
 
-                </div>
+                    <div>
+                        <span *ngIf="!userForm.valid && userForm.touched" class="help-block">Please enter valid
+                            data!</span>
+                    </div>
 
-                <br><br>
-                <span *ngIf="!userForm.valid && userForm.touched" class="help-block">Please enter valid
-                    data!</span>
+                    <div class="col t-button-right">
+                        <button class="btn btn-primary " type="submit" [disabled]="!userForm.valid">Add</button>
+                    </div>
 
-                <button class="btn btn-primary" type="submit" [disabled]="!userForm.valid">Add User</button>
-
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </div>

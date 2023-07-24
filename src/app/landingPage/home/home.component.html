@@ -1,77 +1,196 @@
-<div class="container-fluid">
+<div class="container-fluid t-banner">
 
-    <div class="container">
-        <h2>
-            Private Tutoring
-        </h2>
+    <div class="row">
+        <div class="col-sm-12 col-md-7">
+            <carousel [interval]="3000" [noPause]="false" [noWrap]="false">
+                <slide>
+                    <img src={{t_path_image_banner1}} class="d-block w-100" alt="Imagem 1">
+                </slide>
+                <slide>
+                    <img src={{t_path_image_banner2}} class="d-block w-100" alt="Imagem 2">
+                </slide>
+                <slide>
+                    <img src={{t_path_image_banner3}} class="d-block w-100" alt="Imagem 3">
+                </slide>
+            </carousel>
+        </div>
 
-        <!-- <app-viewer-pdf></app-viewer-pdf> -->
+        <div class="col-12 col-md-5 t-padding-col">
+            <h1 class="text-center">Private Tutoring</h1>
 
-
-    </div>
-
-
-
-
-</div>
-
-<!-- <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        English
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Speaking</h5>
-                        
-                        <button (click)="showDivLanguageLearn('E')" class="btn btn-primary">.. more</button>
-                    </div>
+            <div class="row">
+                <div class="col-12">
+                    <h3>{{t1}}</h3>
+                    <h4>{{t2}}</h4>
+                    <h4>{{t3}}</h4>
                 </div>
             </div>
 
-            <div class="col-sm-12 col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        Turkish
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Listening</h5>
-                        
-                        <button (click)="showDivLanguageLearn('T')" class="btn btn-primary">.. more</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        German
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Writing</h5>
-                        
-                        <button (click)="showDivLanguageLearn('G')" class="btn btn-primary">.. more</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-12 col-md-4">
-                <div class="card">
-                    <div class="card-header">
-                        German
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Reading</h5>
-                        
-                        <button (click)="showDivLanguageLearn('G')" class="btn btn-primary">.. more</button>
+            <div class="row t-banner-skill">
+                <div class="col-12">
+                    <h5>{{t11}}</h5>
+                    <div class="icon-list">
+                        <div class="row">
+                            <div class="col-6">
+                                <i class="fas fa-comments"></i> {{t12}}
+                            </div>
+                            <div class="col-6">
+                                <i class="fas fa-headphones"></i> {{t13}}
+                            </div>
+                            <div class="col-6">
+                                <i class="fas fa-pen"></i> {{t14}}
+                            </div>
+                            <div class="col-6">
+                                <i class="fas fa-book-open"></i> {{t15}}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-    </div> -->
 
+    </div>
+
+    <!-- <img src={{t_path_image_banner1}} class="img-fluid t-img-banner" alt="person on the computer"> -->
+
+</div>
+
+<div class="container t-works">
+
+    <div class="row">
+        <h2 class="text-center">{{t4}}</h2>
+
+        <div class="row">
+            <div class="col-6">
+                <p>{{t8}}</p>
+                <p>{{t9}}</p>
+            </div>
+
+            <div class="col-6">
+                <div class="card-container">
+                    <div class="card">
+                        <img class="t-work-card-img" src={{t_path_image_work1}} alt="goal">
+                        <p>{{t5}}</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="t-work-card-img" src={{t_path_image_work2}} alt="scratch">
+                        <p>{{t6}}</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="t-work-card-img" src={{t_path_image_work3}} alt="timezone">
+                        <p>{{t7}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            {{t10}} <button>Contact me</button>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="container-fluid t-plan">
+    <div>
+        <h2 class="text-center">{{t16}}</h2>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-12 col-md-2 t-padding-col">
+                    <div class="row t-plan-ds">
+                        {{t161}}
+                    </div>
+
+                    <div class="row t-plan-ds">
+                        {{t162}}
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-10 t-plan-card">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4">
+                            <div class="card t-plan-card-height">
+                                <div class="card-header text-center">
+                                    {{t17}}
+                                </div>
+                                <div class="card-body">
+                                    <p>{{t20}}</p>
+                                    <p>{{t23}}</p>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <button class="btn btn-outline-dark">Contact me</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-4 ">
+                            <div class="card t-plan-card-height">
+                                <div class="card-header text-center">
+                                    {{t18}}
+                                </div>
+                                <div class="card-body">
+                                    <p>{{t20}}</p>
+                                    <p>{{t23}}</p>
+                                    <p>{{t21}}</p>
+                                    <p>{{t22}}</p>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <button class="btn btn-outline-dark">Contact me</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-4 ">
+                            <div class="card t-plan-card-height">
+                                <div class="card-header text-center">
+                                    {{t19}}
+                                </div>
+                                <div class="card-body">
+                                    <p>{{t20}}</p>
+                                    <p>{{t23}}</p>
+                                    <p>{{t21}}</p>
+                                    <p>{{t22}}</p>
+                                    <p>{{t24}}</p>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <button class="btn btn-outline-dark">Contact me</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 
+<div class="container t-tips">
+
+
+</div> -->
+
+<!-- <div class="col-sm-12 col-md-3">
+    <div class="card">
+        <div class="card-header">
+            {{t15}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Reading</h5>
+
+            <button (click)="showDivLanguageLearn('G')" class="btn btn-primary">.. more</button>
+        </div>
+    </div>
+</div> -->
 <!-- <div>
     <div class="container" *ngIf="divOptionLanguageLearn === 'E'">
         <h3><strong>English</strong></h3>
@@ -85,4 +204,8 @@
 
 </div> -->
 
-<br><br><br>
+
+<br><br>
+
+
+<!-- <app-viewer-pdf></app-viewer-pdf> -->

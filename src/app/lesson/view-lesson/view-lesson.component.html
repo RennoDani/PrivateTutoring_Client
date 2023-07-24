@@ -2,58 +2,88 @@
 
 
 <html>
-<h4>View Lesson</h4>
-<div class="container" *ngIf="displayLesson">
-    <div class="row">
-        <div class="col-4">
-            <input type="search" [(ngModel)]="searchText" placeholder="Title">
+
+<div class="container">
+    <div class="t-form-container" *ngIf="displayLesson">
+
+        <div class="row">
+            <div class="col t-form t-form-title">
+                <h4>Lesson List</h4>
+            </div>
         </div>
-        <div class="col-4">
-            <select [(ngModel)]="searchType" placeholder="Type">
-                <option value="">Select a type</option>
-                <option *ngFor="let t of typeList" value="{{t.description}}">{{t.description}}</option>
-            </select>
-        </div>
-        <div class="col-4">
-            <select [(ngModel)]="searchLevel" placeholder="Level">
-                <option value="">Select a level</option>
-                <option *ngFor="let l of levelList" value="{{l.description}}">{{l.description}}</option>
-            </select>
-        </div>
-        <!-- <div class="col-3">
+
+        <div class="t-form-search-group">
+            <div class="row ">
+                <div class="col-4">
+                    <input type="search" [(ngModel)]="searchText" placeholder="Title">
+                </div>
+                <div class="col-4">
+                    <select [(ngModel)]="searchType" placeholder="Type">
+                        <option value="">Select a type</option>
+                        <option *ngFor="let t of typeList" value="{{t.description}}">{{t.description}}</option>
+                    </select>
+                </div>
+                <div class="col-4">
+                    <select [(ngModel)]="searchLevel" placeholder="Level">
+                        <option value="">Select a level</option>
+                        <option *ngFor="let l of levelList" value="{{l.description}}">{{l.description}}</option>
+                    </select>
+                </div>
+                <!-- <div class="col-3">
             <input type="search" [(ngModel)]="searchStudent" placeholder="Student">
-        </div> -->
-        <div class="col-2"><button type="reset">Clear</button></div>
+            </div> -->
+            </div>
 
-    </div>
+            <div class="row">
+                <div class="t-button-right">
+                    <button class="btn btn-secondary" type="reset">Clear</button>
+                </div>
+            </div>
+        </div>
 
-    <br><br>
 
-
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col"
-            *ngFor="let l of lessonList | search: searchText: 'title' | search: searchType: 'type' | search: searchLevel: 'level' ">
-            <div class="card">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col"
+                *ngFor="let l of lessonList | search: searchText: 'title' | search: searchType: 'type' | search: searchLevel: 'level' ">
                 <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{l.title}}</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">{{l.type}}</h6>
-                        <p class="card-text">{{l.level}}</p>
-                        
-                        <!-- <a href="#" class="card-link">Edit</a> -->
-                        <p>ID: {{l.idlesson}}</p>
-                        <button type="button" [routerLink]="[l.idlesson]" (click)="onEdit()">edit</button>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{l.title}}</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">{{l.type}}</h6>
+                            <p class="card-text">{{l.level}}</p>
 
+                            <!-- <a href="#" class="card-link">Edit</a> -->
+                            <p>ID: {{l.idlesson}}</p>
+                            <button class="btn btn-outline-success" type="button" [routerLink]="[l.idlesson]" (click)="onEdit()">edit</button>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<div *ngIf="!displayLesson">
-    <router-outlet></router-outlet>
-    <button class="btn btn-dark" type="submit" (click)="onBack()">Back view user</button>
+    <div *ngIf="!displayLesson">
+        <div class="t-form-container">
+            <div class="row">
+                <div class="col t-form ">
+                    <div class="row">
+                        <div class="col-10 t-form-title">
+                            <h4>Edit Lesson</h4>
+                        </div>
+                        <div class="col-1 t-button-right">
+                            <button class="btn btn-outline-dark" type="submit" (click)="onBack()">Back</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col t-form">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 </html>

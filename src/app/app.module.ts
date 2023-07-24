@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -73,7 +74,8 @@ import { SearchPipe } from './_pipe/search.pipe';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxExtendedPdfViewerModule
+    NgxExtendedPdfViewerModule,
+    CarouselModule.forRoot()
   ],
   providers: [
     AuthenticationService,

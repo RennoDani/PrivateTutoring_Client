@@ -27,7 +27,7 @@ export class AdminAddUserComponent implements OnInit {
       phoneUser: new FormControl(),
       dateBirthUser: new FormControl(),
       profileUser: new FormControl(
-        null,
+        'student',
         [Validators.required]
       )
     });

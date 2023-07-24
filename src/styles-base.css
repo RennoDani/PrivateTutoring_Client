@@ -1,0 +1,88 @@
+/* p {
+    color: red;
+    font-weight: 500;
+} */
+
+
+/* Forms */
+
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.t-form-container {
+    max-width: 800px;
+    margin-top: 3%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);    
+}
+
+.t-form-title{
+    color: olive;
+    text-align: center;
+}
+
+.t-form{
+    margin: 2%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);    
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.t-form-search-group{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 2%;
+    margin-bottom: 1%;
+}
+
+.t-form-radio-group{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: fit-content;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.t-button-right{
+    text-align: end; 
+}
+
+/* .btn-primary:hover {
+    background-color: #0056b3;
+} */
+
+
+/* .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+} */
