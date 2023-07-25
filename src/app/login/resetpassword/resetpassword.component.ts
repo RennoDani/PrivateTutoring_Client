@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Ilogin } from 'src/app/_model/login.model';
+import { PopupComponent } from 'src/app/_popup/popup/popup.component';
 import { LoginService } from 'src/app/_service/login.service';
 
 @Component({
@@ -10,7 +12,9 @@ import { LoginService } from 'src/app/_service/login.service';
 })
 export class ResetpasswordComponent {
   
-  constructor(private loginSrv: LoginService) { }
+  
+  constructor(private loginSrv: LoginService,
+    private dialog: MatDialog) { }
 
   resetPasswordForm: FormGroup;
   login : Ilogin;
@@ -31,10 +35,19 @@ export class ResetpasswordComponent {
 
     this.loginSrv.ResetPassword(this.login).subscribe(response => {
       console.log('return reset password ', response);
-    })
-    // if(response.sucess){
 
-    // }
+      this.openPopup(response.message);
+
+      // if(response.sucess){}
+    })
   }
 
+
+  openPopup(message: string): void {
+    this.dialog.open(PopupComponent, {
+      width: '400px',
+      data: { message: message }
+    });
+  }
+  
 }

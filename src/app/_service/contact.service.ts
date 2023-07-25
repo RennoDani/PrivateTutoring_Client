@@ -20,6 +20,7 @@ export class ContactService {
   addContact(contact: Icontact): Observable<any>{
     //console.log('add - service');
     //console.log(contact);
+
     return this.http.post(`${this.apiUrl}/Contact`, contact);
   }
 

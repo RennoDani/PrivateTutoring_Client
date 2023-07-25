@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -36,6 +38,8 @@ import { QuizComponent } from './quiz/quiz.component';
 import { QuestionComponent } from './quiz/question/question.component';
 import { AnswerComponent } from './quiz/answer/answer.component';
 import { SearchPipe } from './_pipe/search.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PopupComponent } from './_popup/popup/popup.component';
 
 
 @NgModule({
@@ -66,7 +70,8 @@ import { SearchPipe } from './_pipe/search.pipe';
     QuizComponent,
     QuestionComponent,
     AnswerComponent,
-    SearchPipe
+    SearchPipe,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +80,11 @@ import { SearchPipe } from './_pipe/search.pipe';
     ReactiveFormsModule,
     HttpClientModule,
     NgxExtendedPdfViewerModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatDialogModule
+
   ],
   providers: [
     AuthenticationService,

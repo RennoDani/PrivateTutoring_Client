@@ -10,7 +10,13 @@ input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
 
+.t-form-center{
+    display: flex;
+    justify-content: center;
+}
+
 .t-form-container {
+    min-width: 400px;
     max-width: 800px;
     margin-top: 3%;
     padding: 20px;

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Ilogin } from 'src/app/_model/login.model';
+import { PopupComponent } from 'src/app/_popup/popup/popup.component';
 import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { LoginService } from 'src/app/_service/login.service';
 
@@ -15,7 +17,8 @@ export class LoginComponent {
   constructor(
     private loginSrv: LoginService,
     private authSrv: AuthenticationService,
-    private router_login: Router
+    private router_login: Router,
+    private dialog: MatDialog
     ) { }
 
   logInForm: FormGroup;
@@ -47,7 +50,10 @@ export class LoginComponent {
         this.authSrv.setToken(response.token);
 
         this.login = response;
+
         console.log(response.message);
+        //this.openPopup(response.message);
+
         this.logInForm.reset();
 
         this.router_login.navigate(['/dashboardAdmin']);
@@ -55,9 +61,17 @@ export class LoginComponent {
       }else{
         //console.log('Invalid Email or Password!');
         console.log(response.message);
+        this.openPopup(response.message);
       }      
     });
   }
 
+
+  openPopup(message: string): void {
+    this.dialog.open(PopupComponent, {
+      width: '400px',
+      data: { message: message }
+    });
+  }
 
 }

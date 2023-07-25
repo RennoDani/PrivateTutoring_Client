@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { PopupComponent } from 'src/app/_popup/popup/popup.component';
 import { ContactService } from 'src/app/_service/contact.service';
 
 @Component({
@@ -10,7 +12,9 @@ import { ContactService } from 'src/app/_service/contact.service';
 export class ContactComponent implements OnInit {
 
 
-  constructor (private ContactSrv: ContactService){}
+  constructor(private contactSrv: ContactService,
+    private dialog: MatDialog
+  ) { }
 
   contactForm: FormGroup;
 
@@ -20,54 +24,46 @@ export class ContactComponent implements OnInit {
     //this.onGet();
 
     this.contactForm = new FormGroup({
-      nameContact: new FormControl(),
+      nameContact: new FormControl(
+        null,
+        [Validators.required]
+      ),
       emailContact: new FormControl(
         null,
         [Validators.required, Validators.email]
       ),
       phoneContact: new FormControl(),
-      messageContact: new FormControl()
+      messageContact: new FormControl(
+        null,
+        [Validators.required]
+      )
     });
-
   }
-
-
-  onGet() {
-    //console.log(this.contactForm);
-    //this.contactForm.reset();
-
-    console.log('angular 1 - get');
-
-    // this.ContactSrv.getContact().subscribe(response => {
-    //   console.log('angular 2 - get');
-    //   //console.log(response);
-    //   this.contactList = response;
-    // });
-  }
+  
 
   onAdd() {
+    //console.log('on Add Contact');
     //console.log(this.contactForm);
-    //this.contactForm.reset();
 
-    //console.log('angular 1 - add');
-    //console.log(this.contactForm.value);
+    this.contactSrv.addContact(this.contactForm.value).subscribe(response => {      
 
-    this.ContactSrv.addContact(this.contactForm.value).subscribe(response => {
-      //console.log('angular 2 - add');     
+      console.log(response);
 
-      console.log('Contact successfully saved!');
-      this.contactForm.reset();
+      this.openPopup(response.message);
 
-      // if(response){
-      //   console.log('dentro if response');
-      //   this.contactForm.reset();
-      // }
-
-
+      if (response.sucess) {
+        console.log('Contact successfully saved!');
+        this.contactForm.reset();
+      }
     });
-
-
   }
 
+
+  openPopup(message: string): void {
+    this.dialog.open(PopupComponent, {
+      width: '400px',
+      data: { message: message }
+    });
+  }
 
 }
