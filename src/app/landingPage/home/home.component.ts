@@ -21,15 +21,25 @@ export class HomeComponent {
   t_path_image_work2: string = '../assets/images/scratch.jpg';
   t_path_image_work3: string = '../assets/images/improving.jpg';
 
+  t_main_title: string = 'Private Tutoring'
+
   t1: string = 'Learn and improve your English!';
 
   t2: string = 'Online sessions.';// with a native Canadian teacher.';
 
   t3: string = 'You can choose the best time in your time zone.';
 
+  //Skills
+  t11: string = 'Let`s practice your Skills together!';
+
+  t12: string = 'Speaking';
+  t13: string = 'Listening';
+  t14: string = 'Writing';
+  t15: string = 'Reading';
+
 
   //how works
-  t4: string = 'How lessons work:';
+  t4: string = 'How lessons work';
 
   t5: string = 'Create a plan to achieve a goal, including grammar sessions.';
 
@@ -43,15 +53,6 @@ export class HomeComponent {
   t9: string = 'You can improve your speaking and listening with our exclusive english club, only students can participate and help with other.';
 
   t10: string = 'If you are interested, send me a message and I will answer your questions related to classes.';
-
-
-  //Skills
-  t11: string = 'Skills:';
-
-  t12: string = 'Speaking';
-  t13: string = 'Listening';
-  t14: string = 'Writing';
-  t15: string = 'Reading';
 
 
   //Plan

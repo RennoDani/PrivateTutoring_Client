@@ -1,105 +1,114 @@
 <div class="container-fluid t-banner">
-
+    <div class="row t-banner-main-title">
+        {{t_main_title}}
+    </div>
     <div class="row">
-        <div class="col-sm-12 col-md-7">
-            <carousel [interval]="3000" [noPause]="false" [noWrap]="false">
-                <slide>
-                    <img src={{t_path_image_banner1}} class="d-block w-100" alt="Imagem 1">
-                </slide>
-                <slide>
-                    <img src={{t_path_image_banner2}} class="d-block w-100" alt="Imagem 2">
-                </slide>
-                <slide>
-                    <img src={{t_path_image_banner3}} class="d-block w-100" alt="Imagem 3">
-                </slide>
-            </carousel>
+        <div class="col-sm-12 col-md-7 t-padding-col">
+            <div>
+                <carousel [interval]="5000" [noPause]="false" [noWrap]="false">
+                    <slide>
+                        <img src={{t_path_image_banner1}} class="d-block w-100 t-banner-carousel" alt="Imagem 1">
+                    </slide>
+                    <slide>
+                        <img src={{t_path_image_banner2}} class="d-block w-100 t-banner-carousel" alt="Imagem 2">
+                    </slide>
+                    <slide>
+                        <img src={{t_path_image_banner3}} class="d-block w-100 t-banner-carousel" alt="Imagem 3">
+                    </slide>
+                </carousel>
+            </div>
         </div>
 
-        <div class="col-12 col-md-5 t-padding-col">
-            <h1 class="text-center">Private Tutoring</h1>
+        <div class="col-12 col-md-5 d-flex align-items-center t-padding-col">
+            <div class="t-banner-border t-banner-text">
+                <ul class="t-padding-col">
+                    <li class="t-padding-col"><i class="bi bi-check2-all"></i>{{t1}}</li>
+                    <li class="t-padding-col"><i class="bi bi-check2-all"></i>{{t2}}</li>
+                    <li class="t-padding-col"><i class="bi bi-check2-all"></i>{{t3}}</li>
+                </ul>
 
-            <div class="row">
-                <div class="col-12">
-                    <h3>{{t1}}</h3>
-                    <h4>{{t2}}</h4>
-                    <h4>{{t3}}</h4>
-                </div>
-            </div>
-
-            <div class="row t-banner-skill">
-                <div class="col-12">
-                    <h5>{{t11}}</h5>
-                    <div class="icon-list">
-                        <div class="row">
-                            <div class="col-6">
-                                <i class="fas fa-comments"></i> {{t12}}
+                <div class="row justify-content-center t-banner-text-center t-padding-col">
+                    <div class="col-12 t-padding-text">
+                        {{t11}}
+                    </div>
+                    <div class="col-12 mt-2">
+                        <div class="row justify-content-center">
+                            <div class="col-6 t-padding-col">
+                                <i class="bi bi-mic"></i> {{t12}}
                             </div>
-                            <div class="col-6">
-                                <i class="fas fa-headphones"></i> {{t13}}
+                            <div class="col-6 t-padding-col">
+                                <i class="bi bi-headphones"></i> {{t13}}
                             </div>
-                            <div class="col-6">
-                                <i class="fas fa-pen"></i> {{t14}}
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-6 t-padding-col">
+                                <i class="bi bi-pencil-square"></i> {{t14}}
                             </div>
-                            <div class="col-6">
-                                <i class="fas fa-book-open"></i> {{t15}}
+                            <div class="col-6 t-padding-col">
+                                <i class="bi bi-book"></i> {{t15}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 
     <!-- <img src={{t_path_image_banner1}} class="img-fluid t-img-banner" alt="person on the computer"> -->
 
 </div>
 
+
 <div class="container t-works">
 
-    <div class="row">
-        <h2 class="text-center">{{t4}}</h2>
+    <div class="row t-main-section-title">
+        {{t4}}
+    </div>
 
-        <div class="row">
-            <div class="col-6">
-                <p>{{t8}}</p>
-                <p>{{t9}}</p>
+    <div class="row">
+        <div class="col-sm-12 col-md-5 t-padding-col">
+            <div class="row t-work-text">                
+                    <p>{{t8}}</p>
+                    <p>{{t9}}</p>                     
             </div>
 
-            <div class="col-6">
-                <div class="card-container">
-                    <div class="card">
-                        <img class="t-work-card-img" src={{t_path_image_work1}} alt="goal">
-                        <p>{{t5}}</p>
-                    </div>
+            <div class="row t-work-text mt-4">
+                {{t10}} <button>Contact me</button>        
+            </div>
+        </div>
 
-                    <div class="card">
-                        <img class="t-work-card-img" src={{t_path_image_work2}} alt="scratch">
-                        <p>{{t6}}</p>
-                    </div>
+        <div class="col-sm-12 col-md-7 t-padding-col">
+            <div class="card-container">
+                <div class="card">
+                    <img class="t-work-card-img" src={{t_path_image_work1}} alt="goal">
+                    <p>{{t5}}</p>
+                </div>
 
-                    <div class="card">
-                        <img class="t-work-card-img" src={{t_path_image_work3}} alt="timezone">
-                        <p>{{t7}}</p>
-                    </div>
+                <div class="card">
+                    <img class="t-work-card-img" src={{t_path_image_work2}} alt="scratch">
+                    <p>{{t6}}</p>
+                </div>
+
+                <div class="card">
+                    <img class="t-work-card-img" src={{t_path_image_work3}} alt="timezone">
+                    <p>{{t7}}</p>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-
-            {{t10}} <button>Contact me</button>
-
-        </div>
     </div>
+
 
 </div>
 
-<div class="container-fluid t-plan">
-    <div>
-        <h2 class="text-center">{{t16}}</h2>
 
+
+
+<div class="container-fluid t-plan">
         <div class="container">
+            <div class="row t-main-section-title-dark">
+                {{t16}}
+            </div>
+
             <div class="row">
 
                 <div class="col-sm-12 col-md-2 t-padding-col">
@@ -171,7 +180,8 @@
         </div>
 
     </div>
-</div>
+
+
 
 <!-- 
 <div class="container t-tips">
@@ -203,9 +213,6 @@
     </div>
 
 </div> -->
-
-
-<br><br>
 
 
 <!-- <app-viewer-pdf></app-viewer-pdf> -->
