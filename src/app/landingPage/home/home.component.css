@@ -1,4 +1,4 @@
-*{
+* {
     font-family: 'Indie Flower', cursive;
 }
 
@@ -13,8 +13,8 @@
 
 ul {
     list-style-type: none;
-  }
-  
+}
+
 .t-main-section-title {
     font-size: xx-large;
     justify-content: center;
@@ -46,7 +46,7 @@ ul {
     color: #556b2f;
 }
 
-.t-banner {    
+.t-banner {
     background-color: #556b2f;
     color: whitesmoke;
     min-height: 300px;
@@ -60,18 +60,18 @@ ul {
     width: auto;
 }
 
-.t-banner-border{
+.t-banner-border {
     border: solid 1px whitesmoke;
     border-radius: 5%;
     border-style: inset;
-    padding: 5%;  
+    padding: 5%;
 }
 
 .t-banner-text {
-    font-size: xx-large;    
+    font-size: xx-large;
 }
 
-.t-banner-text-center{
+.t-banner-text-center {
     text-align: center;
 }
 
@@ -85,13 +85,19 @@ ul {
     margin-bottom: 3%;
 }
 
-.t-work-text{
+.t-work-text {
     font-size: x-large;
 }
 
-.t-work-card-img {
-    max-height: 100px;
+.t-work-text-message {
+    color: #556b2f;
+    font-weight: 800;
+    font-size: x-large;
 }
+
+/* .t-work-card-img {
+    max-height: 100px;
+} */
 
 
 /*** PLAN ***/
@@ -104,28 +110,26 @@ ul {
 }
 
 .t-plan-card {
-    border: dashed 1px whitesmoke;
+    border: dashed 3px #6a863b;
     border-radius: 2%;
-    background-color: #6a863b;
     margin-top: 2%;
     margin-bottom: 2%;
     padding: 3%;
 }
 
-.t-plan-card-height {
-    min-height: 22rem;
-    min-width: auto;
-    padding: 1%;
+.t-card-header {
+    font-weight: bold;
+}
+
+.t-plan-card-text {
+    font-size: x-large;
 }
 
 .t-plan-ds {
     font-weight: 500;
-    font-size: larger;
-    text-align: left;
-
-    padding: 10%;
+    font-size: x-large;
+    text-align: center;
 }
-
 
 .card-container {
     display: flex;
@@ -138,6 +142,8 @@ ul {
     border-radius: 5px;
     padding: 10px;
     margin: 10px;
+    color: #6a863b;
+    
 }
 
 .card img {
@@ -146,11 +152,3 @@ ul {
     object-fit: cover;
 }
 
-
-/*** TIPS ***/
-.t-tips {
-    border: solid 1px blue;
-    color: olive;
-    min-height: 500px;
-    padding: 2%;
-}

@@ -1,51 +1,49 @@
-<html>
-<div class="container t-form-center">
-    <div class="t-form-container ">
-        <div class="row">
-            <div class="col t-form t-form-title">
-                <h4>Contact me</h4>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col t-form">
-                <form [formGroup]="contactForm" (ngSubmit)="onAdd()">
-                    <div class="form-group">
-                        <label for="nameContact">Name</label>
-                        <input type="text" id="nameContact" formControlName="nameContact" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="emailContact">Email</label>
-                        <input type="text" id="emailContact" formControlName="emailContact" class="form-control">
-
-                        <span *ngIf="!contactForm.get('emailContact').valid && contactForm.get('emailContact').touched"
-                            class="help-block">Please enter a valid email!</span>
-
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phoneContact">WhatsApp</label>
-                        <input type="text" id="phoneContact" formControlName="phoneContact" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="messageContact">Message</label>
-                        <textarea id="messageContact" formControlName="messageContact" class="form-control" rows="5"
-                            resize="vertical">
-                        </textarea>
-                    </div>
-
-                    <span *ngIf="!contactForm.valid && contactForm.touched" class="help-block">Please enter valid
-                        data!</span>
-
-                    <div class="col t-button-right">
-                        <button class="btn btn-primary" type="submit" [disabled]="!contactForm.valid">Send</button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
+<div class="container t-padding">
+    <div class="row t-main-title">
+        Contact me
     </div>
 </div>
 
-</html>
+
+<div class="container t-form-center">
+    
+        <form [formGroup]="contactForm" (ngSubmit)="onAdd()">
+            <div class="row t-border">
+
+                <div class="form-group">
+                    <label for="nameContact">Name</label>
+                    <input type="text" id="nameContact" formControlName="nameContact" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="emailContact">Email</label>
+                    <input type="text" id="emailContact" formControlName="emailContact" class="form-control">
+
+                    <span *ngIf="!contactForm.get('emailContact').valid && contactForm.get('emailContact').touched"
+                        class="help-block">Please enter a valid email!</span>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneContact">WhatsApp</label>
+                    <input type="text" id="phoneContact" formControlName="phoneContact" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="messageContact">Message</label>
+                    <textarea id="messageContact" formControlName="messageContact" class="form-control"
+                        resize="vertical" rows="5">
+                            </textarea>
+                </div>
+
+                <!-- <div class="row">
+                    <span *ngIf="!contactForm.valid && contactForm.touched" class="help-block">Please enter valid
+                        data!</span>
+                </div> -->
+
+                <div class="col t-button-right">
+                    <button class="btn btn-outline-dark" type="submit" [disabled]="!contactForm.valid">Send</button>
+                </div>
+            </div>            
+        </form>   
+</div>

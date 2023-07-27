@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="col-12 col-md-5 d-flex align-items-center t-padding-col">
+        <div class="col-sm-12 col-md-5 d-flex align-items-center t-padding-col">
             <div class="t-banner-border t-banner-text">
                 <ul class="t-padding-col">
                     <li class="t-padding-col"><i class="bi bi-check2-all"></i>{{t1}}</li>
@@ -53,50 +53,53 @@
             </div>
         </div>
     </div>
-
-    <!-- <img src={{t_path_image_banner1}} class="img-fluid t-img-banner" alt="person on the computer"> -->
-
 </div>
 
 
 <div class="container t-works">
 
-    <div class="row t-main-section-title">
+    <div class="row t-main-section-title-dark">
         {{t4}}
     </div>
 
-    <div class="row">
-        <div class="col-sm-12 col-md-5 t-padding-col">
-            <div class="row t-work-text">                
-                    <p>{{t8}}</p>
-                    <p>{{t9}}</p>                     
-            </div>
-
-            <div class="row t-work-text mt-4">
-                {{t10}} <button>Contact me</button>        
+    <div class="row justify-content-around t-work-text t-padding-col">
+        <div class="card" style="width: 18rem;">
+            <img class="t-work_card_img" src={{t_path_image_work1}} alt="goal">
+            <div class="card-body">
+                <p class="card-text">{{t5}}</p>
             </div>
         </div>
 
-        <div class="col-sm-12 col-md-7 t-padding-col">
-            <div class="card-container">
-                <div class="card">
-                    <img class="t-work-card-img" src={{t_path_image_work1}} alt="goal">
-                    <p>{{t5}}</p>
-                </div>
+        <div class="card" style="width: 18rem;">
+            <img src={{t_path_image_work2}} alt="scratch">
+            <div class="card-body">
+                <p class="card-text">{{t5}}</p>
+            </div>
+        </div>
 
-                <div class="card">
-                    <img class="t-work-card-img" src={{t_path_image_work2}} alt="scratch">
-                    <p>{{t6}}</p>
-                </div>
-
-                <div class="card">
-                    <img class="t-work-card-img" src={{t_path_image_work3}} alt="timezone">
-                    <p>{{t7}}</p>
-                </div>
+        <div class="card" style="width: 18rem;">
+            <img src={{t_path_image_work3}} alt="improving">
+            <div class="card-body">
+                <p class="card-text">{{t5}}</p>
             </div>
         </div>
     </div>
 
+    <div class="row justify-content-center t-work-text">
+        <div class="col-12 t-padding-col">
+            {{t8}}
+        </div>
+        <div class="col-12 t-padding-col">
+            {{t9}}
+        </div>        
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-12 t-padding-col t-work-text-message">
+            {{t10}}
+            <button class="btn btn-outline-dark" routerLink="contact">Contact me</button>
+        </div>
+    </div>
 
 </div>
 
@@ -104,115 +107,74 @@
 
 
 <div class="container-fluid t-plan">
-        <div class="container">
-            <div class="row t-main-section-title-dark">
-                {{t16}}
+    <div class="container">
+        <div class="row t-main-section-title-dark">
+            {{t16}}
+        </div>
+
+        <div class="row justify-content-center t-plan-ds">
+            <div class="col-12 mt-4 mb-2">
+                {{t161}}
             </div>
-
-            <div class="row">
-
-                <div class="col-sm-12 col-md-2 t-padding-col">
-                    <div class="row t-plan-ds">
-                        {{t161}}
-                    </div>
-
-                    <div class="row t-plan-ds">
-                        {{t162}}
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-10 t-plan-card">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-4">
-                            <div class="card t-plan-card-height">
-                                <div class="card-header text-center">
-                                    {{t17}}
-                                </div>
-                                <div class="card-body">
-                                    <p>{{t20}}</p>
-                                    <p>{{t23}}</p>
-                                </div>
-                                <div class="card-footer text-center">
-                                    <button class="btn btn-outline-dark">Contact me</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 col-md-4 ">
-                            <div class="card t-plan-card-height">
-                                <div class="card-header text-center">
-                                    {{t18}}
-                                </div>
-                                <div class="card-body">
-                                    <p>{{t20}}</p>
-                                    <p>{{t23}}</p>
-                                    <p>{{t21}}</p>
-                                    <p>{{t22}}</p>
-                                </div>
-                                <div class="card-footer text-center">
-                                    <button class="btn btn-outline-dark">Contact me</button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 col-md-4 ">
-                            <div class="card t-plan-card-height">
-                                <div class="card-header text-center">
-                                    {{t19}}
-                                </div>
-                                <div class="card-body">
-                                    <p>{{t20}}</p>
-                                    <p>{{t23}}</p>
-                                    <p>{{t21}}</p>
-                                    <p>{{t22}}</p>
-                                    <p>{{t24}}</p>
-                                </div>
-                                <div class="card-footer text-center">
-                                    <button class="btn btn-outline-dark">Contact me</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
+            <div class="col-12 mb-2">
+                {{t162}}
             </div>
         </div>
 
-    </div>
+        <div class="row justify-content-center t-plan-card t-plan-card-text">
+            <div class="card" style="width: 22rem;">
+                <div class="card-header text-center t-card-header">
+                    {{t17}}
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="t-padding-col"><i class="bi bi-play-fill"></i>{{t20}}</li>
+                        <li class="t-padding-col"><i class="bi bi-play-fill"></i>{{t23}}</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-outline-dark" routerLink="contact">Contact me</button>
+                </div>
+            </div>
 
+            <div class="card" style="width: 22rem;">
+                <div class="card-header text-center t-card-header">
+                    {{t18}}
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="t-padding-col"><i class="bi bi-play-fill"></i>{{t20}}</li>
+                        <li class="t-padding-col"><i class="bi bi-play-fill"></i>{{t23}}</li>
+                        <li class="t-padding-col"><i class="bi bi-play-fill"></i>{{t21}}</li>
+                        <li class="t-padding-col"><i class="bi bi-play-fill"></i>{{t22}}</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-outline-dark" routerLink="contact">Contact me</button>
+                </div>
+            </div>
 
-
-<!-- 
-<div class="container t-tips">
-
-
-</div> -->
-
-<!-- <div class="col-sm-12 col-md-3">
-    <div class="card">
-        <div class="card-header">
-            {{t15}}
+            <div class="card" style="width: 22rem;">
+                <div class="card-header text-center t-card-header">
+                    {{t19}}
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li class="t-padding-col"><i class="bi bi-play-fill"></i>{{t20}}</li>
+                        <li class="t-padding-col"><i class="bi bi-play-fill"></i>{{t23}}</li>
+                        <li class="t-padding-col"><i class="bi bi-play-fill"></i>{{t21}}</li>
+                        <li class="t-padding-col"><i class="bi bi-play-fill"></i>{{t22}}</li>
+                        <li class="t-padding-col"><i class="bi bi-play-fill"></i>{{t24}}</li>
+                    </ul>
+                </div>
+                <div class="card-footer text-center">
+                    <button class="btn btn-outline-dark" routerLink="contact">Contact me</button>
+                </div>
+            </div>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Reading</h5>
-
-            <button (click)="showDivLanguageLearn('G')" class="btn btn-primary">.. more</button>
-        </div>
-    </div>
-</div> -->
-<!-- <div>
-    <div class="container" *ngIf="divOptionLanguageLearn === 'E'">
-        <h3><strong>English</strong></h3>
     </div>
 
-    <div class="container" *ngIf="divOptionLanguageLearn === 'T'">
-    </div>
-
-    <div class="container" *ngIf="divOptionLanguageLearn === 'G'">
-    </div>
-
-</div> -->
+</div>
 
 
-<!-- <app-viewer-pdf></app-viewer-pdf> -->
+<app-contact></app-contact>

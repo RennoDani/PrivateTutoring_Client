@@ -6,11 +6,29 @@
 
 /* Forms */
 
+.t-font-landing-page {
+    font-family: 'Indie Flower', cursive;
+    font-size: large;
+    font-weight: bold;
+}
+
+.t-background-landing-page{
+    background-color: whitesmoke;
+    color: #6a863b;
+}
+
+.t-background-landing-page-dark{
+    background-color: #6a863b;
+    color: whitesmoke;
+}
+
+
+
 input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
 
-.t-form-center{
+.t-form-center {
     display: flex;
     justify-content: center;
 }
@@ -22,34 +40,34 @@ input.ng-invalid.ng-touched {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.t-form-title{
+.t-form-title {
     color: olive;
     text-align: center;
 }
 
-.t-form{
+.t-form {
     margin: 2%;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
     margin-bottom: 15px;
 }
 
-.t-form-search-group{
+.t-form-search-group {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 2%;
     margin-bottom: 1%;
 }
 
-.t-form-radio-group{
+.t-form-radio-group {
     border: 1px solid #ccc;
     border-radius: 5px;
     max-width: fit-content;
@@ -75,8 +93,8 @@ label {
     cursor: pointer;
 }
 
-.t-button-right{
-    text-align: end; 
+.t-button-right {
+    text-align: end;
 }
 
 /* .btn-primary:hover {
