@@ -13,7 +13,7 @@
 }
 
 .t-border{
-    border: dashed 1px #6a863b;
+    border: inset 1px #6a863b;
     border-radius: 2%;
     margin-top: 2%;
     margin-bottom: 2%;
