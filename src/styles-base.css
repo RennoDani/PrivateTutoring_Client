@@ -3,11 +3,19 @@
     font-weight: 500;
 } */
 
+.mat-typography{
+    margin: 0px;
+    padding: 0px;
+}
+
+* {
+    font-family: 'Indie Flower', cursive;
+}
+
 
 /* Forms */
 
 .t-font-landing-page {
-    font-family: 'Indie Flower', cursive;
     font-size: large;
     font-weight: bold;
 }

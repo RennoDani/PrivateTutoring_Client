@@ -1,0 +1,15 @@
+/* .mat-typography{
+    margin: 0px;
+    padding: 0px;
+} */
+
+
+.t-background{
+    background-color: #6a863b;
+    color: whitesmoke;
+   
+}
+
+.t-row-menu{
+    min-height: 600px;
+}

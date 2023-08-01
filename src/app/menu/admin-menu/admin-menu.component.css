@@ -1,0 +1,29 @@
+* {
+    font-family: 'Indie Flower', cursive;
+}
+
+.t-button-menu:hover{
+    /* border: solid 2px goldenrod; */
+    color: goldenrod;
+    font-size: larger;
+}
+
+.t-button-menu{
+    text-align: left;    
+    color: whitesmoke;
+    font-weight: 600; 
+}
+
+.t-align{
+    align-content: left;
+}
+
+li{
+    list-style: none;
+}
+
+.accordion-item, .accordion-header, .accordion-button, .accordion-body{
+    color: whitesmoke;
+    font-weight: 600; 
+    background-color: #6a863b;
+}

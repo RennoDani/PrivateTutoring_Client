@@ -1,36 +1,56 @@
 <!-- <p>admin-menu works!</p> -->
 
-<div class="sidebar">
-    <ul class="nav flex-column">
-        <li class="nav-item">
-            <button type="button" class="btn btn-outline-secondary" routerLink="user">Add User</button>
-        </li>
+<div>
 
-        <li class="nav-item">
-            <button type="button" class="btn btn-outline-secondary" routerLink="viewuser">View User</button>
-        </li>
-        
-        <br>
-        <!-- <li class="nav-item">
-            <button type="button" class="btn btn-outline-secondary" routerLink="edituser">Edit User</button>
-        </li>
-         -->
+    <div class="accordion accordion-flush " id="accordionLeftMenu">
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    User
+                </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionLeftMenu">
+                <div class="accordion-body">
+                    <ul>
+                        <li>
+                            <button type="button" class="btn t-button-menu " routerLink="user">Add User</button>
+                        </li>
 
-        <li class="nav-item">
-            <button type="button" class="btn btn-outline-secondary" routerLink="lesson">Add Lesson</button>
-        </li>
+                        <li>
+                            <button type="button" class="btn t-button-menu" routerLink="viewuser">View User</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    Lesson
+                </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionLeftMenu">
+                <div class="accordion-body">
+                    <ul>
+                        <li>
+                            <button type="button" class="btn t-button-menu" routerLink="lesson">Add Lesson</button>
+                        </li>
 
-        <li class="nav-item">
-            <button type="button" class="btn btn-outline-secondary" routerLink="viewlesson">View Lesson</button>
-        </li>
+                        <li>
+                            <button type="button" class="btn t-button-menu" routerLink="viewlesson">View Lesson</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <!-- <li class="nav-item">
-            <button type="button" class="btn btn-outline-secondary" routerLink="editlesson">Edit Lesson</button>
-        </li> -->
 
-        <br>
 
-        <!-- <li class="nav-item">
+
+    <!-- <li class="nav-item">
             <button type="button" class="btn btn-outline-secondary" routerLink="quiz">Quiz</button>
         </li>
 
@@ -42,15 +62,12 @@
             <button type="button" class="btn btn-outline-secondary" routerLink="answer">Answer</button>
         </li> -->
 
-        <br>
 
-        <!-- <li class="nav-item">
+
+    <!-- <li class="nav-item">
             <button type="button" class="btn btn-outline-secondary" routerLink="viewcontact">View Contact</button>
         </li>
 
         <li class="nav-item">
             <button type="button" class="btn btn-outline-secondary" routerLink="editcontact">Edit Contact</button>
         </li> -->
-
-    </ul>
-</div>
