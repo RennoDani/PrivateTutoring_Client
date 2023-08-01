@@ -16,37 +16,37 @@
 
                 <div class="form-group">
                     <label for="typeLesson">Type</label>
-                    <input type="text" id="typeLesson" formControlName="typeLesson" class="form-control">
+                    <select id="typeLesson" formControlName="typeLesson" class="form-control">
+                        <option value="">Select a type</option>
+                        <option *ngFor="let t of typeList" value="{{t.type}}">{{t.description}}</option>
+                    </select>
                 </div>
-
-
 
                 <div class="form-group">
                     <label for="levelLesson">Level</label>
-                    <input type="text" id="levelLesson" formControlName="levelLesson" class="form-control">
+                    <select type="text" id="levelLesson" formControlName="levelLesson" class="form-control">
+                        <option value="">Select a level</option>
+                        <option *ngFor="let l of levelList" value="{{l.level}}">{{l.description}}</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="fileLesson">File (PDF)</label>
-                    <input type="text" id="fileLesson" formControlName="fileLesson" class="form-control">
+                    <label for="fileLesson">File (*.PDF)</label>
+                    <p>{{ lessonForm.get('displayFileName').value }}</p>
+
+                    <input type="file" (change)="onFileSelected($event)" id="fileLesson" formControlName="fileLesson"
+                        class="form-control">
                 </div>
 
                 <div>
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-10">
                             <div class="card">
-                                <button type="button" class="btn btn-outline-secondary" routerLink="viewpdf">Viewer PDF
-                                    Lesson</button>
-
-                                <button (click)="onGetPDF()">Get PDF</button>
-
-                                <iframe *ngIf="pdfData" [src]="pdfData" width="100%" height="500px"></iframe>
-
-
-                                <!-- Alternatively, you can use <object> to embed the PDF -->
-                                <!--<object *ngIf="pdfData" [data]="pdfData" type="application/pdf" width="100%" height="500px"></object>-->
-
-
+                                <ngx-extended-pdf-viewer [src]="pdfUrl" [height]="'100%'" [useBrowserLocale]="true"
+                                [textLayer]="true" [showHandToolButton]="true" [showPresentationModeButton]="true" [showPrintButton]="false"
+                                [showRotateButton]="false" [showOpenFileButton]="false" [showDownloadButton]="false"
+                                [showSidebarButton]="true" [scrollMode]="1">
+                            </ngx-extended-pdf-viewer>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
 
                 <!-- <span *ngIf="!lessonForm.valid && lessonForm.touched" class="help-block">Please enter valid
                         data!</span> -->
-                
+
 
                 <div class="col t-button-right">
                     <button class="btn btn-primary" type="submit">Save</button>
@@ -64,9 +64,11 @@
     </div>
 </div>
 
+
+
 <!-- <div class="row">
     <div class="col-10">
-        <ngx-extended-pdf-viewer [src]="pdfData" [height]="'100%'" [useBrowserLocale]="true"
+        <ngx-extended-pdf-viewer [src]="pdfUrl" [height]="'100%'" [useBrowserLocale]="true"
             [textLayer]="true" [showHandToolButton]="true" [showPresentationModeButton]="true" [showPrintButton]="false"
             [showRotateButton]="false" [showOpenFileButton]="false" [showDownloadButton]="false"
             [showSidebarButton]="true" [scrollMode]="1">

@@ -41,8 +41,12 @@ export class LessonService {
 
 
 
-  getPDF(filepath: any) {
-    return this.http.get(`${this.apiUrl}/`+filepath, { responseType: 'arraybuffer' });      
+  getPDF(namepdf: any) {
+  
+    const serverUrl = `${this.apiUrl}/LessonPDF/`+namepdf; // Coloque o URL do servidor Node.js aqui
+    return this.http.get(serverUrl, { responseType: 'arraybuffer' })
+
+    //return this.http.get(`${this.apiUrl}/`+filepath, { responseType: 'arraybuffer' });      
   }
 
 }

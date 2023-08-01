@@ -24,7 +24,7 @@ export class ViewLessonComponent implements OnInit{
   searchText: any = '';
   searchType: any = '';
   searchLevel: any = '';
-  searchStudent: any = '';
+  //searchStudent: any = '';
 
   ngOnInit(): void {
     this.onGet();
@@ -61,6 +61,12 @@ export class ViewLessonComponent implements OnInit{
     this.location.back();
     this.displayLesson = true;
     this.onGet();
+  }
+
+  onClear(){
+    this.searchLevel = "";
+    this.searchType = "";
+    this.searchText = "";
   }
 
 }

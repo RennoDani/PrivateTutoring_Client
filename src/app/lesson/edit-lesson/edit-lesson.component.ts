@@ -6,10 +6,7 @@ import { Ilevel } from 'src/app/_model/level.model';
 import { Itype } from 'src/app/_model/type.model';
 import { LessonService } from 'src/app/_service/lesson.service';
 
-
-import { ChangeDetectionStrategy } from '@angular/core';
 import { NgxExtendedPdfViewerService, pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-edit-lesson',
@@ -18,22 +15,13 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class EditLessonComponent implements OnInit {
 
-
-  // constructor(private route_edit: ActivatedRoute,
-  //   private lessonSrv: LessonService) {
-
-  // }
-
-
   constructor(private route_edit: ActivatedRoute,
     private lessonSrv: LessonService,
-    private pdfService: NgxExtendedPdfViewerService,
-    private sanitizer: DomSanitizer) {
+    private pdfService: NgxExtendedPdfViewerService
+  ) {
     pdfDefaultOptions.doubleTapZoomFactor = '150%'; // The default value is '200%'
     pdfDefaultOptions.maxCanvasPixels = 4096 * 4096 * 5;
   }
-  pdfData: SafeResourceUrl;
-
 
   lessonForm: FormGroup;
   typeList: Itype[] = [];
@@ -41,6 +29,7 @@ export class EditLessonComponent implements OnInit {
   selectedFile: any = '';
   idlesson: any;
   lesson: Ilesson[] = [];
+  pdfUrl: string;
 
   ngOnInit() {
     this.onGetType();
@@ -54,8 +43,11 @@ export class EditLessonComponent implements OnInit {
       idLesson: new FormControl(),
       titleLesson: new FormControl(),
       typeLesson: new FormControl(),
+      dstypeLesson: new FormControl(),
       levelLesson: new FormControl(),
-      fileLesson: new FormControl()
+      dslevelLesson: new FormControl(),
+      fileLesson: new FormControl(),
+      displayFileName: new FormControl()
     });
 
 
@@ -64,19 +56,26 @@ export class EditLessonComponent implements OnInit {
       this.lesson = response;
 
       //console.log('edit lessson - response: ', response);
+      //console.log('filepath: ', this.lesson[0].filepath);
 
       this.lessonForm.patchValue({
         idLesson: this.lesson[0].idlesson,
         titleLesson: this.lesson[0].title,
         typeLesson: this.lesson[0].type,
+        dstypeLesson: this.lesson[0].dstype,
         levelLesson: this.lesson[0].level,
-        fileLesson: this.lesson[0].filepath
+        dslevelLesson: this.lesson[0].dslevel
+        //,fileLesson: this.lesson[0].filepath
       });
+
+      this.lessonForm.get('displayFileName').setValue(this.lesson[0].filepath.substring(10));
+
+      this.onGetPDF();
 
     });
   }
 
-  onFileSelected(event: any) {
+  onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
   }
 
@@ -87,13 +86,20 @@ export class EditLessonComponent implements OnInit {
     formData.append('title', this.lessonForm.get('titleLesson').value);
     formData.append('type', this.lessonForm.get('typeLesson').value);
     formData.append('level', this.lessonForm.get('levelLesson').value);
-    //formData.append('filepath', this.selectedFile);
+    formData.append('filepath', this.selectedFile);
 
     this.lessonSrv.editLesson(formData).subscribe(response => {
       // if (response.sucess) {
       //   this.lessonForm.reset();
       // }
       console.log(response.message);
+
+      //console.log('edit - this.selectedFile: ',this.selectedFile);
+
+      this.lessonForm.get('displayFileName').setValue(this.selectedFile.name);
+
+      this.onGetPDF();
+
     })
 
   }
@@ -111,18 +117,25 @@ export class EditLessonComponent implements OnInit {
   }
 
   onGetPDF() {
+    const namepdfold = this.lesson[0].filepath.substring(10);
+    console.log('namepdfold: ', namepdfold);
 
-    console.log('filepath: ', this.lesson[0].filepath);
+    const namepdfnew = this.selectedFile.name;
+    console.log('namepdfnew: ', namepdfnew);
 
-    this.lessonSrv.getPDF(this.lesson[0].filepath).subscribe((data: ArrayBuffer) => {
-      // Convert the response data to a Blob and create a URL for it
-      const blob = new Blob([data], { type: 'application/pdf' });
-      const url = window.URL.createObjectURL(blob);
+    const namepdf = namepdfnew !== null && namepdfnew !== undefined ? namepdfnew : namepdfold;
+    
+    console.log('namepdf: ', namepdf);
 
-      // Assign the URL to the variable to display the PDF in an iframe or embed it in a <object> element
-
-      this.pdfData = this.sanitizer.bypassSecurityTrustResourceUrl(url);
-    });
+    this.lessonSrv.getPDF(namepdf).subscribe(
+      (data) => {
+        const file = new Blob([data], { type: 'application/pdf' });
+        this.pdfUrl = URL.createObjectURL(file);
+      },
+      (error) => {
+        console.error('Erro ao obter o arquivo PDF do servidor:', error);
+      }
+    );
   }
 
 }
