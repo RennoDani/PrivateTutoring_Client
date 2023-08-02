@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Ilogin } from 'src/app/_model/login.model';
 import { PopupComponent } from 'src/app/_popup/popup/popup.component';
@@ -17,8 +16,7 @@ export class LoginComponent {
   constructor(
     private loginSrv: LoginService,
     private authSrv: AuthenticationService,
-    private router_login: Router,
-    private dialog: MatDialog
+    private router_login: Router
     ) { }
 
   logInForm: FormGroup;
@@ -68,10 +66,10 @@ export class LoginComponent {
 
 
   openPopup(message: string): void {
-    this.dialog.open(PopupComponent, {
-      width: '400px',
-      data: { message: message }
-    });
+    // this.dialog.open(PopupComponent, {
+    //   width: '400px',
+    //   data: { message: message }
+    // });
   }
 
 }

@@ -4,8 +4,7 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -81,10 +80,7 @@ import { PopupComponent } from './_popup/popup/popup.component';
     HttpClientModule,
     NgxExtendedPdfViewerModule,
     CarouselModule.forRoot(),
-    BrowserAnimationsModule,
-    MatButtonModule,
-    MatDialogModule
-
+    BrowserAnimationsModule
   ],
   providers: [
     AuthenticationService,

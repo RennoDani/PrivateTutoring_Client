@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from 'src/app/_popup/popup/popup.component';
 import { ContactService } from 'src/app/_service/contact.service';
 
@@ -12,9 +11,7 @@ import { ContactService } from 'src/app/_service/contact.service';
 export class ContactComponent implements OnInit {
 
 
-  constructor(private contactSrv: ContactService,
-    private dialog: MatDialog
-  ) { }
+  constructor(private contactSrv: ContactService) { }
 
   contactForm: FormGroup;
 
@@ -60,10 +57,10 @@ export class ContactComponent implements OnInit {
 
 
   openPopup(message: string): void {
-    this.dialog.open(PopupComponent, {
-      width: '400px',
-      data: { message: message }
-    });
+    // this.dialog.open(PopupComponent, {
+    //   width: '400px',
+    //   data: { message: message }
+    // });
   }
 
 }
