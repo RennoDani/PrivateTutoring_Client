@@ -6,44 +6,42 @@
 
 
 <div class="container t-form-center">
-    
-        <form [formGroup]="contactForm" (ngSubmit)="onAdd()">
-            <div class="row t-border">
 
-                <div class="form-group">
-                    <label for="nameContact">Name</label>
-                    <input type="text" id="nameContact" formControlName="nameContact" class="form-control">
-                </div>
+    <form [formGroup]="contactForm" (ngSubmit)="onAdd()">
+        <div class="row t-border">
 
-                <div class="form-group">
-                    <label for="emailContact">Email</label>
-                    <input type="text" id="emailContact" formControlName="emailContact" class="form-control">
+            <div class="form-group">
+                <label for="nameContact">Name</label>
+                <input type="text" id="nameContact" formControlName="nameContact" class="form-control">
+            </div>
 
-                    <span *ngIf="!contactForm.get('emailContact').valid && contactForm.get('emailContact').touched"
-                        class="help-block">Please enter a valid email!</span>
+            <div class="form-group">
+                <label for="emailContact">Email</label>
+                <input type="text" id="emailContact" formControlName="emailContact" class="form-control">
 
-                </div>
+                <span *ngIf="!contactForm.get('emailContact').valid && contactForm.get('emailContact').touched"
+                    class="help-block">Please enter a valid email!</span>
 
-                <div class="form-group">
-                    <label for="phoneContact">WhatsApp</label>
-                    <input type="text" id="phoneContact" formControlName="phoneContact" class="form-control">
-                </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="messageContact">Message</label>
-                    <textarea id="messageContact" formControlName="messageContact" class="form-control"
-                        resize="vertical" rows="5">
+            <div class="form-group">
+                <label for="phoneContact">WhatsApp</label>
+                <input type="text" id="phoneContact" formControlName="phoneContact" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="messageContact">Message</label>
+                <textarea id="messageContact" formControlName="messageContact" class="form-control" resize="vertical"
+                    rows="5">
                             </textarea>
-                </div>
+            </div>
 
-                <!-- <div class="row">
-                    <span *ngIf="!contactForm.valid && contactForm.touched" class="help-block">Please enter valid
-                        data!</span>
-                </div> -->
+            <div class="col t-button-right">
+                <button class="btn btn-outline-dark" type="submit" [disabled]="!contactForm.valid">Send</button>
+            </div>
+        </div>
+    </form>
 
-                <div class="col t-button-right">
-                    <button class="btn btn-outline-dark" type="submit" [disabled]="!contactForm.valid">Send</button>
-                </div>
-            </div>            
-        </form>   
+    <app-popup *ngIf="messagePopup !== ''"></app-popup>
+
 </div>

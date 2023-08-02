@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { PopupComponent } from 'src/app/_popup/popup/popup.component';
 import { ContactService } from 'src/app/_service/contact.service';
+import { PopupService } from 'src/app/_service/popup.service';
 
 @Component({
   selector: 'app-contact',
@@ -10,15 +10,14 @@ import { ContactService } from 'src/app/_service/contact.service';
 })
 export class ContactComponent implements OnInit {
 
-
-  constructor(private contactSrv: ContactService) { }
+  constructor(private contactSrv: ContactService,
+    private popupSrv: PopupService
+  ) { }
 
   contactForm: FormGroup;
-
+  messagePopup: string = '';
 
   ngOnInit() {
-
-    //this.onGet();
 
     this.contactForm = new FormGroup({
       nameContact: new FormControl(
@@ -36,17 +35,14 @@ export class ContactComponent implements OnInit {
       )
     });
   }
-  
+
 
   onAdd() {
-    //console.log('on Add Contact');
-    //console.log(this.contactForm);
 
-    this.contactSrv.addContact(this.contactForm.value).subscribe(response => {      
+    this.contactSrv.addContact(this.contactForm.value).subscribe(response => {
 
-      console.log(response);
-
-      this.openPopup(response.message);
+      this.messagePopup = response.message;
+      this.popupSrv.setMessage(response.message);
 
       if (response.sucess) {
         console.log('Contact successfully saved!');
@@ -55,12 +51,5 @@ export class ContactComponent implements OnInit {
     });
   }
 
-
-  openPopup(message: string): void {
-    // this.dialog.open(PopupComponent, {
-    //   width: '400px',
-    //   data: { message: message }
-    // });
-  }
 
 }
