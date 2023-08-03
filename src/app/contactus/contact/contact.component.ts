@@ -45,7 +45,7 @@ export class ContactComponent implements OnInit {
       this.popupSrv.setMessage(response.message);
 
       if (response.sucess) {
-        console.log('Contact successfully saved!');
+        //console.log('Contact successfully saved!');
         this.contactForm.reset();
       }
     });

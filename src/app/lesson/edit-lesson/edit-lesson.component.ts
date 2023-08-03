@@ -6,7 +6,8 @@ import { Ilevel } from 'src/app/_model/level.model';
 import { Itype } from 'src/app/_model/type.model';
 import { LessonService } from 'src/app/_service/lesson.service';
 
-import { NgxExtendedPdfViewerService, pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+//import { NgxExtendedPdfViewerService, pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+import { PopupService } from 'src/app/_service/popup.service';
 
 @Component({
   selector: 'app-edit-lesson',
@@ -17,10 +18,9 @@ export class EditLessonComponent implements OnInit {
 
   constructor(private route_edit: ActivatedRoute,
     private lessonSrv: LessonService,
-    private pdfService: NgxExtendedPdfViewerService
+    private popupSrv: PopupService
+    // private pdfService: NgxExtendedPdfViewerService
   ) {
-    pdfDefaultOptions.doubleTapZoomFactor = '150%'; // The default value is '200%'
-    pdfDefaultOptions.maxCanvasPixels = 4096 * 4096 * 5;
   }
 
   lessonForm: FormGroup;
@@ -30,6 +30,7 @@ export class EditLessonComponent implements OnInit {
   idlesson: any;
   lesson: Ilesson[] = [];
   pdfUrl: string;
+  messagePopup: string = '';
 
   ngOnInit() {
     this.onGetType();
@@ -41,7 +42,9 @@ export class EditLessonComponent implements OnInit {
 
     this.lessonForm = new FormGroup({
       idLesson: new FormControl(),
-      titleLesson: new FormControl(),
+      titleLesson: new FormControl(
+        null,
+        Validators.required),
       typeLesson: new FormControl(),
       dstypeLesson: new FormControl(),
       levelLesson: new FormControl(),
@@ -89,6 +92,10 @@ export class EditLessonComponent implements OnInit {
     formData.append('filepath', this.selectedFile);
 
     this.lessonSrv.editLesson(formData).subscribe(response => {
+
+      this.messagePopup = response.message;
+      this.popupSrv.setMessage(response.message);
+
       // if (response.sucess) {
       //   this.lessonForm.reset();
       // }
@@ -118,14 +125,13 @@ export class EditLessonComponent implements OnInit {
 
   onGetPDF() {
     const namepdfold = this.lesson[0].filepath.substring(10);
-    console.log('namepdfold: ', namepdfold);
+    //console.log('namepdfold: ', namepdfold);
 
     const namepdfnew = this.selectedFile.name;
-    console.log('namepdfnew: ', namepdfnew);
+    //console.log('namepdfnew: ', namepdfnew);
 
     const namepdf = namepdfnew !== null && namepdfnew !== undefined ? namepdfnew : namepdfold;
-    
-    console.log('namepdf: ', namepdf);
+    //console.log('namepdf: ', namepdf);
 
     this.lessonSrv.getPDF(namepdf).subscribe(
       (data) => {

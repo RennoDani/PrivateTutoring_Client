@@ -40,8 +40,12 @@
                 <button class="btn btn-outline-dark" type="submit" [disabled]="!contactForm.valid">Send</button>
             </div>
         </div>
+
+        <div>
+            <app-popup *ngIf="messagePopup !== ''"></app-popup>
+        </div>
     </form>
 
-    <app-popup *ngIf="messagePopup !== ''"></app-popup>
+
 
 </div>

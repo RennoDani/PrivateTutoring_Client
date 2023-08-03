@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Ilevel } from 'src/app/_model/level.model';
 import { Itype } from 'src/app/_model/type.model';
 import { LessonService } from 'src/app/_service/lesson.service';
+import { PopupService } from 'src/app/_service/popup.service';
 
 @Component({
   selector: 'app-add-lesson',
@@ -11,7 +12,9 @@ import { LessonService } from 'src/app/_service/lesson.service';
 })
 export class AddLessonComponent implements OnInit {
 
-  constructor(private lessonSrv: LessonService){
+  constructor(private lessonSrv: LessonService,
+    private popupSrv: PopupService
+  ) {
 
   }
 
@@ -19,12 +22,13 @@ export class AddLessonComponent implements OnInit {
   selectedFile: any = '';
   typeList: Itype[] = [];
   levelList: Ilevel[] = [];
+  messagePopup: string = '';
 
   ngOnInit() {
     this.onGetType();
     this.onGetLevel();
-    
-    this.lessonForm = new FormGroup({      
+
+    this.lessonForm = new FormGroup({
       titleLesson: new FormControl(
         null,
         Validators.required
@@ -44,23 +48,27 @@ export class AddLessonComponent implements OnInit {
     });
   }
 
-  onFileSelected(event: any){
+  onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
 
 
-  onAddLesson(){
+  onAddLesson() {
 
     const formData = new FormData();
 
-    formData.append('title',this.lessonForm.get('titleLesson').value);
-    formData.append('type',this.lessonForm.get('typeLesson').value);
-    formData.append('level',this.lessonForm.get('levelLesson').value);
-    formData.append('filepath',this.selectedFile);
+    formData.append('title', this.lessonForm.get('titleLesson').value);
+    formData.append('type', this.lessonForm.get('typeLesson').value);
+    formData.append('level', this.lessonForm.get('levelLesson').value);
+    formData.append('filepath', this.selectedFile);
 
-//    console.log('add lesson ',formData);
+    //    console.log('add lesson ',formData);
 
     this.lessonSrv.addLesson(formData).subscribe(response => {
+
+      this.messagePopup = response.message;
+      this.popupSrv.setMessage(response.message);
+
       if (response.sucess) {
         this.lessonForm.reset();
       }
@@ -70,13 +78,13 @@ export class AddLessonComponent implements OnInit {
   }
 
 
-  onGetType(){
+  onGetType() {
     this.lessonSrv.getType().subscribe(response => {
       this.typeList = response;
     })
   }
 
-  onGetLevel(){
+  onGetLevel() {
     this.lessonSrv.getLevel().subscribe(response => {
       this.levelList = response;
     })

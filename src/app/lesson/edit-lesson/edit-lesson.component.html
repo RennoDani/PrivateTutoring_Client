@@ -1,12 +1,6 @@
-<!-- <p>edit-lesson works!</p> -->
-
-
-
-<html>
-
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-12">
             <form [formGroup]="lessonForm" (ngSubmit)="onEditLesson()">
 
                 <div class="form-group">
@@ -17,7 +11,7 @@
                 <div class="form-group">
                     <label for="typeLesson">Type</label>
                     <select id="typeLesson" formControlName="typeLesson" class="form-control">
-                        <option value="">Select a type</option>
+                        <option value="" disabled selected>Select a type</option>
                         <option *ngFor="let t of typeList" value="{{t.type}}">{{t.description}}</option>
                     </select>
                 </div>
@@ -25,7 +19,7 @@
                 <div class="form-group">
                     <label for="levelLesson">Level</label>
                     <select type="text" id="levelLesson" formControlName="levelLesson" class="form-control">
-                        <option value="">Select a level</option>
+                        <option value="" disabled selected>Select a level</option>
                         <option *ngFor="let l of levelList" value="{{l.level}}">{{l.description}}</option>
                     </select>
                 </div>
@@ -38,29 +32,32 @@
                         class="form-control">
                 </div>
 
+                <div class="col t-button-right t-button-padding-bottom">
+                    <button class="btn btn-primary" type="submit" [disabled]="!lessonForm.valid">Save</button>
+                </div>
+
                 <div>
-                    <div class="row">
-                        <div class="col-10">
-                            <div class="card">
-                                <ngx-extended-pdf-viewer [src]="pdfUrl" [height]="'100%'" [useBrowserLocale]="true"
-                                [textLayer]="true" [showHandToolButton]="true" [showPresentationModeButton]="true" [showPrintButton]="false"
-                                [showRotateButton]="false" [showOpenFileButton]="false" [showDownloadButton]="false"
-                                [showSidebarButton]="true" [scrollMode]="1">
-                            </ngx-extended-pdf-viewer>
-                            </div>
-                        </div>
-                    </div>
+                    <app-popup *ngIf="messagePopup !== ''"></app-popup>
                 </div>
 
-                <!-- <span *ngIf="!lessonForm.valid && lessonForm.touched" class="help-block">Please enter valid
-                        data!</span> -->
-
-
-                <div class="col t-button-right">
-                    <button class="btn btn-primary" type="submit">Save</button>
-                </div>
             </form>
         </div>
+        <div class="col-12 t-pdf">
+            <ngx-extended-pdf-viewer [src]="pdfUrl" 
+                [height]="'100%'" 
+                [useBrowserLocale]="true" 
+                [textLayer]="true"
+                [showHandToolButton]="true" 
+                [showPresentationModeButton]="true" 
+                [showPrintButton]="false"
+                [showRotateButton]="true" 
+                [showOpenFileButton]="false" 
+                [showDownloadButton]="true"
+                [showSidebarButton]="true" 
+                [scrollMode]="1">
+            </ngx-extended-pdf-viewer>
+        </div>
+
     </div>
 </div>
 
@@ -75,10 +72,3 @@
         </ngx-extended-pdf-viewer>
     </div>
 </div> -->
-
-
-
-
-
-
-</html>

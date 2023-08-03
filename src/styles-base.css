@@ -9,6 +9,7 @@
 }
 
 
+
 /* Forms */
 
 .t-font-landing-page {
@@ -16,35 +17,28 @@
     font-weight: bold;
 }
 
-.t-background-landing-page{
+.t-background-landing-page {
     background-color: whitesmoke;
     color: #6a863b;
 }
 
-.t-background-landing-page-dark{
+.t-background-landing-page-dark {
     background-color: #6a863b;
     color: whitesmoke;
 }
-
 
 
 input.ng-invalid.ng-touched {
     border: 1px solid red;
 }
 
+select.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
 .t-form-center {
     display: flex;
     justify-content: center;
-}
-
-.t-form-container {
-    min-width: 400px;
-    max-width: 800px;
-    margin-top: 3%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .t-form-title {
@@ -101,6 +95,36 @@ label {
     text-align: end;
 }
 
+.t-button-list-center {
+    text-align: -webkit-center;
+}
+
+.t-button-list-margin {
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.t-button-padding-bottom {
+    padding-bottom: 5%;
+}
+
+.t-search-padding {
+    padding: 2%;
+    text-align: center;
+    vertical-align: center;
+}
+
+.t-search-width {
+    width: -webkit-fill-available;
+}
+
+
+.t-card-list:hover {
+    border: solid 1px #6a863b;
+}
+
+
+
 /* .btn-primary:hover {
     background-color: #0056b3;
 } */
@@ -114,3 +138,60 @@ label {
     border-radius: 5px;
     cursor: pointer;
 } */
+
+
+/* Estilos aplicados em telas com largura menor que 400px */
+@media (max-width: 400px) {
+    .t-pdf {
+        min-width: 250px;
+        min-height: 600px;
+    }
+
+    .t-form-container {
+        min-width: 300px;
+        margin-top: 3%;
+        margin-bottom: 10%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Estilos aplicados em telas com largura entre 600px e 900px */
+@media (min-width: 401px) and (max-width: 920px) {
+    .t-pdf {
+        min-width: 350px;
+        min-height: 400px;
+    }
+
+    .t-form-container {
+        min-width: 400px;
+        max-width: 900px;
+        margin-top: 3%;
+        margin-bottom: 10%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Estilos aplicados em telas com largura maior ou igual a 1200px */
+@media (min-width: 921px) {
+    .t-pdf {
+        min-width: 750px;
+        min-height: 400px;
+    }
+
+    .t-form-container {
+        min-width: 800px;
+        max-width: 1200px;
+        margin-top: 3%;
+        margin-bottom: 10%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+}
