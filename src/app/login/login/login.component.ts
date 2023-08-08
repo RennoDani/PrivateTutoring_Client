@@ -20,7 +20,7 @@ export class LoginComponent {
     ) { }
 
   logInForm: FormGroup;
-  login : Ilogin;
+  //login : Ilogin;
 
 
   ngOnInit(): void {
@@ -41,13 +41,17 @@ export class LoginComponent {
     //console.log('on LogIn',this.logInForm.value);
     this.loginSrv.LogIn(this.logInForm.value).subscribe(response => {      
       
-      if(response.login){
+      if(response.success){
         console.log('Login successfully!');
+
+        //console.log('login - response: ',response);
 
         //localStorage.setItem('token', response.token);
         this.authSrv.setToken(response.token);
-
-        this.login = response;
+        this.authSrv.setLoggedIn(response.isloggedIn);
+        this.authSrv.setIdUser(response.iduser);
+        this.authSrv.setNameUser(response.nameuser);
+        this.authSrv.setProfileUser(response.profileuser);
 
         console.log(response.message);
         //this.openPopup(response.message);

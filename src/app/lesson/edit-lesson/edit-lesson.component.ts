@@ -93,6 +93,8 @@ export class EditLessonComponent implements OnInit {
 
     this.lessonSrv.editLesson(formData).subscribe(response => {
 
+      console.log('edit lesson - response: ', response);
+
       this.messagePopup = response.message;
       this.popupSrv.setMessage(response.message);
 

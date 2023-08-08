@@ -36,6 +36,10 @@ select.ng-invalid.ng-touched {
     border: 1px solid red;
 }
 
+textarea.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
 .t-form-center {
     display: flex;
     justify-content: center;

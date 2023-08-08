@@ -15,20 +15,25 @@ export class AuthInterceptorService implements HttpInterceptor {
   ) { }
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
-    // Exclude requests that don't require a token
+    //console.log('auth interceptor - url: ',request.url);
+
+    //Exclude requests that don't require a token
     if (request.url.includes('postLogIn') || request.url.includes('postResetPassword')) {
+      //console.log('auth interceptor 2 - url: ',request.url);
+
       return next.handle(request);
 
     } else {
       const token = this.authSrv.getToken();
 
+      // If we have a token, we set it to the header
       if (token) {
-        // If we have a token, we set it to the header
-
         // Clone the request and add the token to the headers
         const modifiedRequest = request.clone({
           setHeaders: {
-            Authorization: `Authorization token ${token}`
+            'Content-Type': 'application/json',
+            'x-access-token': token
+            //Authorization: `Authorization token ${token}`
           }
         });
 
@@ -38,6 +43,8 @@ export class AuthInterceptorService implements HttpInterceptor {
           catchError((err) => {
             if (err instanceof HttpErrorResponse) {
               if (err.status === 401) {
+                this.authSrv.removeToken();
+
                 // redirect user to the logout page
                 this.router_auth.navigate(['/login']);
               }
