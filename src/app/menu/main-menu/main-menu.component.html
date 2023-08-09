@@ -2,8 +2,9 @@
   <nav class="navbar navbar-expand-md navbar-dark t-background-landing-page-dark">
 
     <a class="navbar-brand" href="#">
-      <img src="../assets/images/logo_tutor.jpg" width="30" height="30" class="d-inline-block align-top"
-        alt="main menu">
+      <i class="bi bi-mortarboard-fill"></i>
+      <!-- <img src="../assets/images/logo_tutor.jpg" width="30" height="30" class="d-inline-block align-top"
+        alt="main menu"> -->
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
@@ -23,6 +24,12 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="contact"><i class="bi bi-person-rolodex"></i> Contact</a>
         </li>
+
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a *ngIf="profileLogin == 'student'" class="nav-link" routerLink="dashboardStudent"><i class="bi bi-motherboard"></i> Dashboard</a>
+          <a *ngIf="profileLogin == 'admin'" class="nav-link" routerLink="dashboardAdmin"><i class="bi bi-motherboard"></i> Dashboard</a>          
+        </li>
+
       </ul>
 
       <ul *ngIf="!isLoggedIn" class="navbar-nav ms-md-auto">

@@ -12,8 +12,6 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './landingPage/home/home.component';
 import { MainMenuComponent } from './menu/main-menu/main-menu.component';
-import { AdminMenuComponent } from './menu/admin-menu/admin-menu.component';
-import { StudentMenuComponent } from './menu/student-menu/student-menu.component';
 import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashboard.component';
 import { StudentDashboardComponent } from './dashboard/student-dashboard/student-dashboard.component';
 import { AboutUsComponent } from './landingPage/about-us/about-us.component';
@@ -39,6 +37,7 @@ import { AnswerComponent } from './quiz/answer/answer.component';
 import { SearchPipe } from './_pipe/search.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PopupComponent } from './_popup/popup/popup.component';
+import { DashboardMenuComponent } from './menu/dashboard-menu/dashboard-menu.component';
 
 
 @NgModule({
@@ -47,8 +46,6 @@ import { PopupComponent } from './_popup/popup/popup.component';
     FooterComponent,
     HomeComponent,
     MainMenuComponent,
-    AdminMenuComponent,
-    StudentMenuComponent,
     AdminDashboardComponent,
     StudentDashboardComponent,
     AboutUsComponent,
@@ -70,7 +67,8 @@ import { PopupComponent } from './_popup/popup/popup.component';
     QuestionComponent,
     AnswerComponent,
     SearchPipe,
-    PopupComponent
+    PopupComponent,
+    DashboardMenuComponent
   ],
   imports: [
     BrowserModule,
