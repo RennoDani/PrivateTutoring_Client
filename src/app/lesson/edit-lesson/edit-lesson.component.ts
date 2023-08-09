@@ -5,8 +5,6 @@ import { Ilesson } from 'src/app/_model/lesson.model';
 import { Ilevel } from 'src/app/_model/level.model';
 import { Itype } from 'src/app/_model/type.model';
 import { LessonService } from 'src/app/_service/lesson.service';
-
-//import { NgxExtendedPdfViewerService, pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 import { PopupService } from 'src/app/_service/popup.service';
 
 @Component({
@@ -18,10 +16,9 @@ export class EditLessonComponent implements OnInit {
 
   constructor(private route_edit: ActivatedRoute,
     private lessonSrv: LessonService,
-    private popupSrv: PopupService
-    // private pdfService: NgxExtendedPdfViewerService
-  ) {
-  }
+    private popupSrv: PopupService) {
+      
+    }
 
   lessonForm: FormGroup;
   typeList: Itype[] = [];
@@ -92,17 +89,10 @@ export class EditLessonComponent implements OnInit {
     formData.append('filepath', this.selectedFile);
 
     this.lessonSrv.editLesson(formData).subscribe(response => {
-
-      console.log('edit lesson - response: ', response);
-
       this.messagePopup = response.message;
       this.popupSrv.setMessage(response.message);
 
-      // if (response.sucess) {
-      //   this.lessonForm.reset();
-      // }
-      console.log(response.message);
-
+      //console.log(response.message);
       //console.log('edit - this.selectedFile: ',this.selectedFile);
 
       this.lessonForm.get('displayFileName').setValue(this.selectedFile.name);

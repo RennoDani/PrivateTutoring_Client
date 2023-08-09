@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Ilesson } from '../_model/lesson.model';
 import { Observable } from 'rxjs';
@@ -18,33 +18,11 @@ export class LessonService {
 
   addLesson(lesson: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/Lesson`, lesson);
-
-    // const token = this.authSrv.getToken();
-
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'x-access-token': token
-    // })
-
-    // return this.http.post(`${this.apiUrl}/Lesson`, lesson, { headers });
-
   }
 
   editLesson(lesson: any): Observable<any> {
-    console.log('service lesson - edit - this.authSrv.getToken(): ', this.authSrv.getToken());
     return this.http.put(`${this.apiUrl}/Lesson`, lesson);
-
-    // const token = this.authSrv.getToken();
-
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'x-access-token': token
-    // })
-
-    // return this.http.put(`${this.apiUrl}/Lesson`, lesson, {headers});
-
   }
-
 
   getAllLesson(): Observable<Ilesson[]> {
     return this.http.get<Ilesson[]>(`${this.apiUrl}/Lesson`);

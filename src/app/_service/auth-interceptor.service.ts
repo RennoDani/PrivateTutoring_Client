@@ -21,7 +21,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     if (request.url.includes('postLogIn') || request.url.includes('postResetPassword')) {
       //console.log('auth interceptor 2 - url: ',request.url);
 
-      return next.handle(request);
+      return next.handle(request);    
 
     } else {
       const token = this.authSrv.getToken();
@@ -31,7 +31,7 @@ export class AuthInterceptorService implements HttpInterceptor {
         // Clone the request and add the token to the headers
         const modifiedRequest = request.clone({
           setHeaders: {
-            'Content-Type': 'application/json',
+            //'Content-Type': 'application/json',
             'x-access-token': token
             //Authorization: `Authorization token ${token}`
           }
