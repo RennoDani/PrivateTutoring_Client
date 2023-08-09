@@ -26,11 +26,11 @@ export class LoginComponent {
   ngOnInit(): void {
     this.logInForm = new FormGroup({
       emailLogin: new FormControl(
-        'admin@email.com',//null,
+        'edu@email.com',//'admin@email.com',//null,
         [Validators.required, Validators.email]
       ),
       passwordLogin: new FormControl(
-        'QzP2nf',//null,
+        'HB4wBX',//'QzP2nf',//null,
         [Validators.required]
       )
     });
@@ -58,7 +58,15 @@ export class LoginComponent {
 
         this.logInForm.reset();
 
-        this.router_login.navigate(['/dashboardAdmin']);
+        if(response.profileuser == 'admin'){
+          this.router_login.navigate(['/dashboardAdmin']);
+        }else if(response.profileuser == 'student'){
+          this.router_login.navigate(['/dashboardStudent']);
+        }else{
+          console.log('This profile does not have a dashboard - please, contact the admin');
+          this.router_login.navigate(['']);
+        }
+        
 
       }else{
         //console.log('Invalid Email or Password!');

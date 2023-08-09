@@ -16,31 +16,47 @@ import { ViewLessonComponent } from './lesson/view-lesson/view-lesson.component'
 import { QuizComponent } from './quiz/quiz.component';
 import { QuestionComponent } from './quiz/question/question.component';
 import { AnswerComponent } from './quiz/answer/answer.component';
+import { StudentDashboardComponent } from './dashboard/student-dashboard/student-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
 
   { path: 'contact', component: ContactComponent },
 
-  { path: 'dashboardAdmin', component: AdminDashboardComponent,children: [  
-     
-    { path: 'user', component: AdminAddUserComponent },
-    { path: 'viewuser', component: AdminViewUserComponent,children:[
-      { path: ':id', component: AdminEditUserComponent },
-    ] },
-    
-    { path: 'lesson', component: AddLessonComponent },
-    { path: 'viewlesson', component: ViewLessonComponent,children:[
-      { path: ':id', component: EditLessonComponent },
-    ] },
-    
+  {
+    path: 'dashboardAdmin', component: AdminDashboardComponent, children: [
 
-    { path: 'quiz', component: QuizComponent },
-    { path: 'question', component: QuestionComponent },
-    { path: 'answer', component: AnswerComponent },
+      { path: 'user', component: AdminAddUserComponent },
+      {
+        path: 'viewuser', component: AdminViewUserComponent, children: [
+          { path: ':id', component: AdminEditUserComponent },
+        ]
+      },
 
-   ] },
-  
+      { path: 'lesson', component: AddLessonComponent },
+      {
+        path: 'viewlesson', component: ViewLessonComponent, children: [
+          { path: ':id', component: EditLessonComponent },
+        ]
+      },
+
+
+      { path: 'quiz', component: QuizComponent },
+      { path: 'question', component: QuestionComponent },
+      { path: 'answer', component: AnswerComponent },
+
+    ]
+  },
+
+  {
+    path: 'dashboardStudent', component: StudentDashboardComponent, children: [
+      {
+        path: 'viewlesson', component: ViewLessonComponent, children: [
+          { path: ':id', component: EditLessonComponent },
+        ]
+      },
+    ]
+  },
 
   { path: 'viewerpdf', component: ViewerPdfComponent },
 

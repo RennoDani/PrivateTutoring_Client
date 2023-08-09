@@ -16,6 +16,7 @@ export class LessonService {
 
   private apiUrl = 'http://localhost:3000';
 
+  //Admin
   addLesson(lesson: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/Lesson`, lesson);
   }
@@ -32,6 +33,14 @@ export class LessonService {
     return this.http.get<Ilesson[]>(`${this.apiUrl}/Lesson/` + id);
   }
 
+
+  //Student
+  getAllUserLesson(iduser: any): Observable<Ilesson[]> {
+    return this.http.get<Ilesson[]>(`${this.apiUrl}/Lesson/student/` +iduser);
+  }
+
+
+  //Type and Level
   getType(): Observable<Itype[]> {
     return this.http.get<Itype[]>(`${this.apiUrl}/LessonType`);
   }
