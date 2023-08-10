@@ -40,7 +40,7 @@ export class ContactComponent implements OnInit {
   onAdd() {
 
     this.contactSrv.addContact(this.contactForm.value).subscribe(response => {
-
+ 
       this.messagePopup = response.message;
       this.popupSrv.setMessage(response.message);
 

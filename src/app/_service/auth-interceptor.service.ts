@@ -18,7 +18,7 @@ export class AuthInterceptorService implements HttpInterceptor {
     //console.log('auth interceptor - url: ',request.url);
 
     //Exclude requests that don't require a token
-    if (request.url.includes('postLogIn') || request.url.includes('postResetPassword')) {
+    if (request.url.includes('postLogIn') || request.url.includes('postResetPassword') || request.url.includes('newContact')) {
       //console.log('auth interceptor 2 - url: ',request.url);
 
       return next.handle(request);    
