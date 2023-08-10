@@ -53,11 +53,16 @@
 
                         <!-- <a href="#" class="card-link">Edit</a> -->
                         <!-- <p>ID: {{l.idlesson}}</p> -->
+
                         
                     </div>
-                    <div class="card-footer t-button-list-center">
+                    <div *ngIf="profileUser == 'admin'" class="card-footer t-button-list-center">                    
                         <button class="btn btn-outline-danger bi bi-trash3 t-button-list-margin" type="button"></button>
                         <button class="btn btn-outline-success bi bi-pencil-square t-button-list-margin" type="button" [routerLink]="[l.idlesson]"
+                        (click)="onEdit()"></button>
+                    </div>
+                    <div *ngIf="profileUser == 'student'" class="card-footer t-button-list-center">
+                        <button class="btn btn-outline-secondary bi bi-filetype-pdf t-button-list-margin" type="button" [routerLink]="[l.idlesson]"
                         (click)="onEdit()"></button>
                     </div>
                 </div>
@@ -72,7 +77,8 @@
                 <div class="col t-form ">
                     <div class="row">
                         <div class="col-9 t-form-title">
-                            <h4>Edit Lesson</h4>
+                            <h4 *ngIf="profileUser == 'admin'">Edit Lesson</h4>
+                            <h4 *ngIf="profileUser == 'student'">View PDF</h4>
                         </div>
                         <div class="col-2 t-button-right">
                             <button class="btn btn-outline-dark" type="submit" (click)="onBack()">Back</button>

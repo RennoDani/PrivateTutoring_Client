@@ -41,7 +41,7 @@ export class AdminAddUserComponent implements OnInit {
 
       console.log('return onAddUser ', response);
 
-      if (response.sucess) {
+      if (response.success) {
         this.userForm.reset();
       }
       console.log(response.message);

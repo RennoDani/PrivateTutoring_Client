@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div *ngIf="profileUser == 'admin'" class="col-12">
             <form [formGroup]="lessonForm" (ngSubmit)="onEditLesson()">
 
                 <div class="form-group">

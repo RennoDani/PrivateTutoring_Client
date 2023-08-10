@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Ilesson } from 'src/app/_model/lesson.model';
 import { Ilevel } from 'src/app/_model/level.model';
 import { Itype } from 'src/app/_model/type.model';
+import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { LessonService } from 'src/app/_service/lesson.service';
 import { PopupService } from 'src/app/_service/popup.service';
 
@@ -14,10 +15,13 @@ import { PopupService } from 'src/app/_service/popup.service';
 })
 export class EditLessonComponent implements OnInit {
 
+  profileUser: any = '';
+
   constructor(private route_edit: ActivatedRoute,
     private lessonSrv: LessonService,
+    private authSrv: AuthenticationService,
     private popupSrv: PopupService) {
-      
+      this.profileUser = authSrv.getProfileUser();
     }
 
   lessonForm: FormGroup;

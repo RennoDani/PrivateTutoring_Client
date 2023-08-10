@@ -94,7 +94,7 @@ export class AdminEditUserComponent implements OnInit {
     // this.userSrv.resetPasswordUser(this.emailLoginReset).subscribe(response => {
     //   console.log('edit user - return reset password ', response);
     // })
-    // if(response.sucess){
+    // if(response.success){
 
     // }
   }

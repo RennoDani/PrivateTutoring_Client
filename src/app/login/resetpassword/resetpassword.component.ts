@@ -36,7 +36,7 @@ export class ResetpasswordComponent {
 
       this.openPopup(response.message);
 
-      // if(response.sucess){}
+      // if(response.success){}
     })
   }
 

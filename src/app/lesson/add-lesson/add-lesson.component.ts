@@ -69,7 +69,7 @@ export class AddLessonComponent implements OnInit {
       this.messagePopup = response.message;
       this.popupSrv.setMessage(response.message);
 
-      if (response.sucess) {
+      if (response.success) {
         this.lessonForm.reset();
       }
       console.log(response.message);
