@@ -75,6 +75,21 @@ textarea.ng-invalid.ng-touched {
     max-width: fit-content;
 }
 
+.t-form-pagination{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 2%;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.t-form-pagination span{
+    margin: 0 1%;
+    font-size: larger;
+}
+
 label {
     font-weight: bold;
 }

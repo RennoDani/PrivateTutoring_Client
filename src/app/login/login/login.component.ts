@@ -26,11 +26,13 @@ export class LoginComponent {
   ngOnInit(): void {
     this.logInForm = new FormGroup({
       emailLogin: new FormControl(
-        'edu@email.com',//'admin@email.com',//null,
+        //'edu@email.com',
+        'admin@email.com',//null,
         [Validators.required, Validators.email]
       ),
       passwordLogin: new FormControl(
-        'HB4wBX',//'QzP2nf',//null,
+        //'HB4wBX',
+        'QzP2nf',//null,
         [Validators.required]
       )
     });

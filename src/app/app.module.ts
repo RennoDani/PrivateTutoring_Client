@@ -38,6 +38,7 @@ import { SearchPipe } from './_pipe/search.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PopupComponent } from './_popup/popup/popup.component';
 import { DashboardMenuComponent } from './menu/dashboard-menu/dashboard-menu.component';
+import { PaginationPipe } from './_pipe/pagination.pipe';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { DashboardMenuComponent } from './menu/dashboard-menu/dashboard-menu.com
     AnswerComponent,
     SearchPipe,
     PopupComponent,
-    DashboardMenuComponent
+    DashboardMenuComponent,
+    PaginationPipe
   ],
   imports: [
     BrowserModule,

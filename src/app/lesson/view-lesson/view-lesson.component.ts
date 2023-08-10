@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Ilesson } from 'src/app/_model/lesson.model';
 import { Ilevel } from 'src/app/_model/level.model';
 import { Itype } from 'src/app/_model/type.model';
@@ -19,6 +20,7 @@ export class ViewLessonComponent implements OnInit {
   constructor(
     private lessonSrv: LessonService,
     private authSrv: AuthenticationService,
+    private router: Router,
     private location: Location) 
     {
       this.profileUser = authSrv.getProfileUser();
@@ -59,6 +61,7 @@ export class ViewLessonComponent implements OnInit {
       })
     }else{
       console.log('This user cannot see lessons');
+      this.router.navigate(['']);
     }
   }
 
@@ -88,6 +91,22 @@ export class ViewLessonComponent implements OnInit {
     this.searchLevel = "";
     this.searchType = "";
     this.searchText = "";
+  }
+
+  //Pagination
+  pageSize = 8; // Itens por página
+  currentPage = 1; // Página atual
+
+  prevPage() {
+    if (this.currentPage > 1) {      
+      this.currentPage--;
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < Math.ceil(this.lessonList.length / this.pageSize)) {
+      this.currentPage++;
+    }
   }
 
 }
