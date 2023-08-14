@@ -17,6 +17,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { QuestionComponent } from './quiz/question/question.component';
 import { AnswerComponent } from './quiz/answer/answer.component';
 import { StudentDashboardComponent } from './dashboard/student-dashboard/student-dashboard.component';
+import { StudentLessonComponent } from './lesson/student-lesson/student-lesson.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -36,14 +37,17 @@ const routes: Routes = [
       { path: 'lesson', component: AddLessonComponent },
       {
         path: 'viewlesson', component: ViewLessonComponent, children: [
+          { path: 'studentlesson/:id', component: StudentLessonComponent },
           { path: ':id', component: EditLessonComponent },
+          
         ]
       },
 
 
-      { path: 'quiz', component: QuizComponent },
-      { path: 'question', component: QuestionComponent },
-      { path: 'answer', component: AnswerComponent },
+
+      // { path: 'quiz', component: QuizComponent },
+      // { path: 'question', component: QuestionComponent },
+      // { path: 'answer', component: AnswerComponent },
 
     ]
   },

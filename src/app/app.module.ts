@@ -40,6 +40,7 @@ import { PopupComponent } from './_popup/popup/popup.component';
 import { DashboardMenuComponent } from './menu/dashboard-menu/dashboard-menu.component';
 import { PaginationPipe } from './_pipe/pagination.pipe';
 import { AllSearchPipe } from './_pipe/all-search.pipe';
+import { StudentLessonComponent } from './lesson/student-lesson/student-lesson.component';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { AllSearchPipe } from './_pipe/all-search.pipe';
     PopupComponent,
     DashboardMenuComponent,
     PaginationPipe,
-    AllSearchPipe
+    AllSearchPipe,
+    StudentLessonComponent
   ],
   imports: [
     BrowserModule,

@@ -31,6 +31,7 @@ export class ViewLessonComponent implements OnInit {
     }
 
   displayLesson: boolean = true;
+  displayStudent: boolean = false;
 
   lessonList: Ilesson[] = [];
   typeList: Itype[] = [];
@@ -79,11 +80,19 @@ export class ViewLessonComponent implements OnInit {
   }
   onEdit() {
     this.displayLesson = false;
+    this.displayStudent = false;
+  }
+
+  onAddStudentLesson(){
+    this.displayLesson = false;
+    this.displayStudent = true;
+    //console.log('onAddStudentLesson() - this.displayStudent: ',this.displayStudent);
   }
 
   onBack() {
     this.location.back();
     this.displayLesson = true;
+    this.displayStudent = false;
     this.onGet();
   }
 
@@ -92,7 +101,7 @@ export class ViewLessonComponent implements OnInit {
     this.searchType = "";
     this.searchText = "";
   }
-
+  
   //Pagination
   pageSize = 8; // Itens per page
   currentPage = 1; // current page

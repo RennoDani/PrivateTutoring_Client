@@ -119,8 +119,8 @@ label {
 }
 
 .t-button-list-margin {
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 3%;
+    margin-right: 3%;
 }
 
 .t-button-padding-bottom {
@@ -158,6 +158,37 @@ label {
     cursor: pointer;
 } */
 
+/* Table */
+.table-container {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+.table-container th {
+    background-color: #f2f2f2;
+    text-align: left;
+    padding: 10px;
+}
+
+.table-container td {
+    padding: 10px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.table-container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-container th,
+.table-container td {
+    padding: 12px 15px;
+}
+
+.table-container tbody tr:hover {
+    background-color: #ddd;
+    font-weight: bolder;
+}
 
 /* Estilos aplicados em telas com largura menor que 400px */
 @media (max-width: 400px) {

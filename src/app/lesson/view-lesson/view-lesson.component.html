@@ -55,11 +55,20 @@
 
                     </div>
                     <div *ngIf="profileUser == 'admin'" class="card-footer t-button-list-center">
+                        <!-- delete lesson -->
                         <button class="btn btn-outline-danger bi bi-trash3 t-button-list-margin" type="button"></button>
+
+                        <!-- edit lessons -->
                         <button class="btn btn-outline-success bi bi-pencil-square t-button-list-margin" type="button"
                             [routerLink]="[l.idlesson]" (click)="onEdit()"></button>
+
+                        <!-- add student to view lesson -->
+                        <button class="btn btn-outline-secondary bi bi-person-plus t-button-list-margin" type="button"
+                            [routerLink]="['studentlesson',l.idlesson]" (click)="onAddStudentLesson()"></button>
+
                     </div>
                     <div *ngIf="profileUser == 'student'" class="card-footer t-button-list-center">
+                        <!-- view lesson pdf -->
                         <button class="btn btn-outline-secondary bi bi-filetype-pdf t-button-list-margin" type="button"
                             [routerLink]="[l.idlesson]" (click)="onEdit()"></button>
                     </div>
@@ -84,9 +93,12 @@
             <div class="row">
                 <div class="col t-form ">
                     <div class="row">
-                        <div class="col-9 t-form-title">
-                            <h4 *ngIf="profileUser == 'admin'">Edit Lesson</h4>
-                            <h4 *ngIf="profileUser == 'student'">View PDF</h4>
+                        <div *ngIf="profileUser == 'admin'" class="col-9 t-form-title">
+                            <h4 *ngIf="!displayStudent">Edit Lesson</h4>
+                            <h4 *ngIf="displayStudent">Add Student to view Lesson</h4>
+                        </div>
+                        <div *ngIf="profileUser == 'student'" class="col-9 t-form-title">
+                            <h4>View PDF</h4>
                         </div>
                         <div class="col-2 t-button-right">
                             <button class="btn btn-outline-dark" type="submit" (click)="onBack()">Back</button>

@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="t-form-search-group">
+        <div class="row">
+
+            <div class="col-md-12">
+                <label for="titleLesson">Title</label>
+                {{title}}
+            </div>
+
+            <div class="col-md-10">
+                <label for="studentLesson">Student</label>
+                <!-- <select class="t-search-width" [(ngModel)]="studentLesson" placeholder="Type"> -->
+                <select class="t-search-width">
+                    <option value="student name">Select a student name</option>
+                    <!-- <option *ngFor="let t of typeList" value="{{t.type}}">{{t.description}}</option> -->
+                </select>
+            </div>
+
+            <div class="col-md-2">
+                <button class="btn btn-secondary bi bi-plus-square" type="button" (click)="onAddStudent()"></button>
+            </div>
+
+        </div>
+        <div class="row mt-3">
+            <div class="table-responsive">
+                <table class="table-container">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td> student name </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
