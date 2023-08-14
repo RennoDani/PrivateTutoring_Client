@@ -45,7 +45,7 @@ export class AdminEditUserComponent implements OnInit {
 
       this.user = response;
 
-      console.log('edit user - response: ', response);
+      //console.log('edit user - response: ', response);
 
       this.editUserForm.patchValue({
         idUser: this.user[0].iduser,

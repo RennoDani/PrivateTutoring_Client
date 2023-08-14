@@ -44,7 +44,7 @@ export class AdminViewUserComponent implements OnInit {
   }
 
   //Pagination
-  pageSize = 8; 
+  pageSize = 6; 
   currentPage = 1; 
 
   prevPage() {
