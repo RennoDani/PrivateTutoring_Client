@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Ilogin } from 'src/app/_model/login.model';
 import { Iuser } from 'src/app/_model/user.model';
 import { LoginService } from 'src/app/_service/login.service';
+import { PopupService } from 'src/app/_service/popup.service';
 import { UserService } from 'src/app/_service/user.service';
 
 @Component({
@@ -17,10 +18,12 @@ export class AdminEditUserComponent implements OnInit {
   user: Iuser[] = [];
   iduser: any;
   login: Ilogin;
+  messagePopup: string = '';
 
   constructor(private route_edit: ActivatedRoute,
     private userSrv: UserService,
-    private loginSrv: LoginService) { }
+    private loginSrv: LoginService,
+    private popupSrv: PopupService) { }
 
   ngOnInit(): void {
 
@@ -69,9 +72,12 @@ export class AdminEditUserComponent implements OnInit {
 
     this.userSrv.editUser(this.editUserForm.value).subscribe(response => {
       //console.log('return onEdituser ', response);
-      console.log(response.message);
+
+      this.messagePopup = response.message;
+      this.popupSrv.setMessage(response.message);
     });
 
+    this.messagePopup = '';
   };
 
 
@@ -85,18 +91,12 @@ export class AdminEditUserComponent implements OnInit {
     // this.login.email = this.editUserForm.get('emailUser').value;
 
     this.loginSrv.ResetPassword(login).subscribe(response => {
-      console.log('onResetPassword ', response);
-    })
+      this.messagePopup = response.message;
+      this.popupSrv.setMessage(response.message);
+    });
 
+    this.messagePopup = '';
 
-    //console.log('edit user - reset password - this.emailLoginReset', this.emailLoginReset);
-
-    // this.userSrv.resetPasswordUser(this.emailLoginReset).subscribe(response => {
-    //   console.log('edit user - return reset password ', response);
-    // })
-    // if(response.success){
-
-    // }
   }
 
 }

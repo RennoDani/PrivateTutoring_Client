@@ -30,6 +30,10 @@
                         <button class="btn btn-primary" type="submit" [disabled]="!logInForm.valid">LogIn</button>
                     </div>
 
+                    <div>
+                        <app-popup *ngIf="messagePopup !== ''"></app-popup>
+                    </div>
+
                 </form>
             </div>
         </div>

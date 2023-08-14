@@ -73,7 +73,9 @@ export class AddLessonComponent implements OnInit {
         this.lessonForm.reset();
       }
       console.log(response.message);
-    })
+    });
+
+    this.messagePopup = '';
 
   }
 

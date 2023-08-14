@@ -41,14 +41,16 @@ export class ContactComponent implements OnInit {
 
     this.contactSrv.addContact(this.contactForm.value).subscribe(response => {
  
+      //console.log('Contact successfully saved!');
       this.messagePopup = response.message;
       this.popupSrv.setMessage(response.message);
 
-      if (response.success) {
-        //console.log('Contact successfully saved!');
+      if (response.success) {        
         this.contactForm.reset();
       }
     });
+
+    this.messagePopup = '';
   }
 
 

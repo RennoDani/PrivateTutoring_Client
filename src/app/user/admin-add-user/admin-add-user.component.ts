@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { PopupService } from 'src/app/_service/popup.service';
 import { UserService } from 'src/app/_service/user.service';
 
 @Component({
@@ -10,8 +11,10 @@ import { UserService } from 'src/app/_service/user.service';
 export class AdminAddUserComponent implements OnInit {
 
   userForm: FormGroup;
+  messagePopup: string = '';
 
-  constructor(private userSrv: UserService) { }
+  constructor(private userSrv: UserService,
+    private popupSrv: PopupService) { }
 
 
   ngOnInit(): void {
@@ -37,15 +40,18 @@ export class AdminAddUserComponent implements OnInit {
     //console.log('on Add user');
 
     this.userSrv.addUser(this.userForm.value).subscribe(response => {
-      //console.log('User successfully saved!');
+      //console.log('return onAddUser ', response);
 
-      console.log('return onAddUser ', response);
+      //console.log('User successfully saved!');
+      this.messagePopup = response.message;
+      this.popupSrv.setMessage(response.message);
 
       if (response.success) {
         this.userForm.reset();
-      }
-      console.log(response.message);
+      }      
     });
+
+    this.messagePopup = '';
   }
 
 

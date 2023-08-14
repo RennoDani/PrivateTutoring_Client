@@ -103,7 +103,8 @@ export class EditLessonComponent implements OnInit {
 
       this.onGetPDF();
 
-    })
+    });
+    this.messagePopup = '';
 
   }
 

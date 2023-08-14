@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Ilogin } from 'src/app/_model/login.model';
-import { PopupComponent } from 'src/app/_popup/popup/popup.component';
 import { LoginService } from 'src/app/_service/login.service';
+import { PopupService } from 'src/app/_service/popup.service';
 
 @Component({
   selector: 'app-resetpassword',
@@ -10,15 +10,17 @@ import { LoginService } from 'src/app/_service/login.service';
   styleUrls: ['./resetpassword.component.css']
 })
 export class ResetpasswordComponent {
-  
-  
-  constructor(private loginSrv: LoginService) { }
+
+
+  constructor(private loginSrv: LoginService,
+    private popupSrv: PopupService) { }
 
   resetPasswordForm: FormGroup;
-  login : Ilogin;
-  
+  login: Ilogin;
+  messagePopup: string = '';
 
-  ngOnInit() : void {
+
+  ngOnInit(): void {
     this.resetPasswordForm = new FormGroup({
       emailLoginReset: new FormControl(
         null,
@@ -27,25 +29,25 @@ export class ResetpasswordComponent {
     })
   }
 
-  onResetPassword(){    
-    
-    this.login = {email: this.resetPasswordForm.get('emailLoginReset').value};
+  onResetPassword() {
+
+    this.login = { email: this.resetPasswordForm.get('emailLoginReset').value };
 
     this.loginSrv.ResetPassword(this.login).subscribe(response => {
-      console.log('return reset password ', response);
 
-      this.openPopup(response.message);
+      console.log('reset password - response: ' + response.message);
 
-      // if(response.success){}
-    })
+      this.messagePopup = response.message;
+      this.popupSrv.setMessage(this.messagePopup);
+
+      if (response.success) {
+        this.resetPasswordForm.reset();
+      }
+    });
+
+    this.messagePopup = '';
   }
 
 
-  openPopup(message: string): void {
-    // this.dialog.open(PopupComponent, {
-    //   width: '400px',
-    //   data: { message: message }
-    // });
-  }
-  
+
 }

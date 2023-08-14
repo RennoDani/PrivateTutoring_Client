@@ -51,6 +51,10 @@
                         <button class="btn btn-primary " type="submit" [disabled]="!userForm.valid">Add</button>
                     </div>
 
+                    <div>
+                        <app-popup *ngIf="messagePopup !== ''"></app-popup>
+                    </div>
+
                 </form>
             </div>
         </div>

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Ilogin } from 'src/app/_model/login.model';
-import { PopupComponent } from 'src/app/_popup/popup/popup.component';
 import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { LoginService } from 'src/app/_service/login.service';
+import { PopupService } from 'src/app/_service/popup.service';
 
 @Component({
   selector: 'app-login',
@@ -16,11 +15,12 @@ export class LoginComponent {
   constructor(
     private loginSrv: LoginService,
     private authSrv: AuthenticationService,
-    private router_login: Router
+    private router_login: Router,
+    private popupSrv: PopupService
     ) { }
 
   logInForm: FormGroup;
-  //login : Ilogin;
+  messagePopup: string = '';
 
 
   ngOnInit(): void {
@@ -42,21 +42,19 @@ export class LoginComponent {
   onLogIn() {
     //console.log('on LogIn',this.logInForm.value);
     this.loginSrv.LogIn(this.logInForm.value).subscribe(response => {      
+
+      this.messagePopup = response.message;
       
       if(response.success){
-        console.log('Login successfully!');
-
-        //console.log('login - response: ',response);
-
-        //localStorage.setItem('token', response.token);
         this.authSrv.setToken(response.token);
         this.authSrv.setLoggedIn(response.isloggedIn);
         this.authSrv.setIdUser(response.iduser);
         this.authSrv.setNameUser(response.nameuser);
         this.authSrv.setProfileUser(response.profileuser);
 
+        //console.log('Login successfully!');
         console.log(response.message);
-        //this.openPopup(response.message);
+        this.popupSrv.setMessage(this.messagePopup);
 
         this.logInForm.reset();
 
@@ -73,17 +71,11 @@ export class LoginComponent {
       }else{
         //console.log('Invalid Email or Password!');
         console.log(response.message);
-        this.openPopup(response.message);
+        this.popupSrv.setMessage(this.messagePopup);
       }      
     });
-  }
 
-
-  openPopup(message: string): void {
-    // this.dialog.open(PopupComponent, {
-    //   width: '400px',
-    //   data: { message: message }
-    // });
+    this.messagePopup = '';
   }
 
 }
