@@ -94,8 +94,8 @@ export class ViewLessonComponent implements OnInit {
   }
 
   //Pagination
-  pageSize = 8; // Itens por página
-  currentPage = 1; // Página atual
+  pageSize = 8; // Itens per page
+  currentPage = 1; // current page
 
   prevPage() {
     if (this.currentPage > 1) {      

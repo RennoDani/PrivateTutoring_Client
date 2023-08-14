@@ -8,12 +8,23 @@
                 </div>
             </div>
 
+            <div class="t-form-search-group">
+                <div class="row ">
+                    <div class="col-md-4 t-search-padding">
+                        <input type="search" class="t-search-width" [(ngModel)]="searchText" placeholder="Text">
+                    </div>
+
+                    <div class="col-md-2 t-search-padding">
+                        <button class="btn btn-secondary" type="reset" (click)="onClear()">Clear</button>
+                    </div>
+                </div>
+            </div>
+
             <form (ngSubmit)="onGet()">
                 <table class="table table-striped table-bordered">
 
                     <thead class="table-dark">
                         <tr>
-                            <th>#</th>
                             <th>Id</th>
                             <th>Name</th>
                             <th>E-mail</th>
@@ -26,9 +37,8 @@
                     </thead>
 
                     <tbody>
-                        <tr *ngFor="let u of userList">
-                            <th scope="row">1</th>
-                            <td> {{u.iduser}} </td>
+                        <tr *ngFor="let u of userList | allSearch: searchText | pagination: pageSize : currentPage">
+                            <th scope="row">{{u.iduser}}</th>
                             <td> {{u.name}} </td>
                             <td> {{u.email}} </td>
                             <td> {{u.phone}} </td>
@@ -36,7 +46,8 @@
                             <td> {{u.profile}} </td>
                             <td> {{u.active}} </td>
 
-                            <td> <button class="btn btn-outline-success" type="button" [routerLink]="[u.iduser]" (click)="onEdit()">edit</button>
+                            <td> <button class="btn btn-outline-success" type="button" [routerLink]="[u.iduser]"
+                                    (click)="onEdit()">edit</button>
                             </td>
 
                         </tr>
@@ -50,6 +61,15 @@
                 </tfoot> -->
                 </table>
 
+                <div class="row mt-1">
+                    <div class="col pagination-container t-form-pagination">
+                        <button class="btn btn-secondary bi bi-arrow-left-square" type="button"
+                            (click)="prevPage()"></button>
+                        <span> {{currentPage}} </span>
+                        <button class="btn btn-secondary bi bi-arrow-right-square" type="button"
+                            (click)="nextPage()"></button>
+                    </div>
+                </div>
             </form>
 
         </div>

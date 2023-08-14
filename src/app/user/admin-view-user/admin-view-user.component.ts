@@ -16,6 +16,7 @@ export class AdminViewUserComponent implements OnInit {
   displayUsers: boolean = true;
 
   userList: Iuser[] = [];
+  searchText: any = '';
 
   ngOnInit(): void {
     this.displayUsers = true;
@@ -32,10 +33,30 @@ export class AdminViewUserComponent implements OnInit {
     this.displayUsers = false;
   }
 
-  onBack(){
+  onBack() {
     this.location.back();
     this.displayUsers = true;
     this.onGet();
+  }
+
+  onClear() {
+    this.searchText = "";
+  }
+
+  //Pagination
+  pageSize = 8; 
+  currentPage = 1; 
+
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < Math.ceil(this.userList.length / this.pageSize)) {
+      this.currentPage++;
+    }
   }
 
 }

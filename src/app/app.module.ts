@@ -39,6 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PopupComponent } from './_popup/popup/popup.component';
 import { DashboardMenuComponent } from './menu/dashboard-menu/dashboard-menu.component';
 import { PaginationPipe } from './_pipe/pagination.pipe';
+import { AllSearchPipe } from './_pipe/all-search.pipe';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { PaginationPipe } from './_pipe/pagination.pipe';
     SearchPipe,
     PopupComponent,
     DashboardMenuComponent,
-    PaginationPipe
+    PaginationPipe,
+    AllSearchPipe
   ],
   imports: [
     BrowserModule,

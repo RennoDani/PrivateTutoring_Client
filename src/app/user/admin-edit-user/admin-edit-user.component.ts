@@ -68,7 +68,7 @@ export class AdminEditUserComponent implements OnInit {
   }
 
   onEdituser() {
-    console.log('edit user - this.editUserForm.value: ', this.editUserForm.value);
+    //console.log('edit user - this.editUserForm.value: ', this.editUserForm.value);
 
     this.userSrv.editUser(this.editUserForm.value).subscribe(response => {
       //console.log('return onEdituser ', response);
