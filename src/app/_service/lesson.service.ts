@@ -4,15 +4,14 @@ import { Ilesson } from '../_model/lesson.model';
 import { Observable } from 'rxjs';
 import { Itype } from '../_model/type.model';
 import { Ilevel } from '../_model/level.model';
-import { AuthenticationService } from './authentication.service';
+import { IlessonUser } from '../_model/lessonUser.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LessonService {
 
-  constructor(private http: HttpClient,
-    private authSrv: AuthenticationService) { }
+  constructor(private http: HttpClient) { }
 
   private apiUrl = 'http://localhost:3000';
 
@@ -39,6 +38,23 @@ export class LessonService {
     return this.http.get<Ilesson[]>(`${this.apiUrl}/Lesson/student/` +iduser);
   }
 
+
+  //Lesson and Student
+  getAllStudentbyLesson(idlesson: any): Observable<IlessonUser[]> {
+    return this.http.get<IlessonUser[]>(`${this.apiUrl}/LessonStudents/All/`+idlesson);
+  }
+
+  getOtherStudentbyLesson(idlesson: any): Observable<IlessonUser[]> {
+    return this.http.get<IlessonUser[]>(`${this.apiUrl}/LessonStudents/Other/`+idlesson);
+  }
+
+  addLessonStudent(lessonUser: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/LessonStudents`, lessonUser);
+  }
+
+  delLessonStudent(lessonUser: any): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/LessonStudents/${lessonUser.idlesson}/${lessonUser.iduser}`);
+  }
 
   //Type and Level
   getType(): Observable<Itype[]> {

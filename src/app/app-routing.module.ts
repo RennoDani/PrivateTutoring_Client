@@ -37,7 +37,7 @@ const routes: Routes = [
       { path: 'lesson', component: AddLessonComponent },
       {
         path: 'viewlesson', component: ViewLessonComponent, children: [
-          { path: 'studentlesson/:id', component: StudentLessonComponent },
+          { path: 'studentlesson/:idlesson/:title', component: StudentLessonComponent },
           { path: ':id', component: EditLessonComponent },
           
         ]

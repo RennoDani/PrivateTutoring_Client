@@ -3,41 +3,54 @@
         <div class="row">
 
             <div class="col-md-12">
-                <label for="titleLesson">Title</label>
-                {{title}}
+                <label for="titleLesson">Title Lesson</label>
+                <p>{{title}}</p>
             </div>
-
-            <div class="col-md-10">
-                <label for="studentLesson">Student</label>
-                <!-- <select class="t-search-width" [(ngModel)]="studentLesson" placeholder="Type"> -->
-                <select class="t-search-width">
-                    <option value="student name">Select a student name</option>
-                    <!-- <option *ngFor="let t of typeList" value="{{t.type}}">{{t.description}}</option> -->
+        </div>
+    </div>
+    <div class="t-form-search-group">
+        <div class="row">
+            <label for="addStudentLesson">Add a Student</label>
+            <div class="col-md-10">                
+                <select class="t-search-width" [(ngModel)]="iduserSelected">
+                    <option value="">Select a student name</option>
+                    <option *ngFor="let s of listOtherStudents" value="{{s.iduser}}">{{s.name}}</option>
                 </select>
             </div>
 
             <div class="col-md-2">
-                <button class="btn btn-secondary bi bi-plus-square" type="button" (click)="onAddStudent()"></button>
+                <button class="btn btn-secondary bi bi-plus-square" type="button" [disabled]="!iduserSelected" (click)="onAddStudent()"></button>
             </div>
-
         </div>
+    </div>
+
+
+    <div class="t-form-search-group">
         <div class="row mt-3">
+            <label for="student">Students List</label>
             <div class="table-responsive">
                 <table class="table-container">
                     <thead>
-                        <tr>
-                            <th>Name</th>
-                        </tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>E-mail</th>
+                        <th>Delete?</th>
                     </thead>
-
                     <tbody>
-                        <tr>
-                            <td> student name </td>
+                        <tr *ngFor="let s of listStudents">
+                            <td>{{s.iduser}}</td>
+                            <td>{{s.name}}</td>
+                            <td>{{s.email}}</td>                            
+                            <td><button class="btn btn-outline-danger bi bi-trash3" type="button" (click)="onDelStudent(s.iduser)"></button></td>
                         </tr>
                     </tbody>
                 </table>
 
             </div>
         </div>
+    </div>
+
+    <div>
+        <app-popup *ngIf="messagePopup !== ''"></app-popup>
     </div>
 </div>

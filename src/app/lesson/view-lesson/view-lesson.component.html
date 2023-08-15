@@ -64,7 +64,7 @@
 
                         <!-- add student to view lesson -->
                         <button class="btn btn-outline-secondary bi bi-person-plus t-button-list-margin" type="button"
-                            [routerLink]="['studentlesson',l.idlesson]" (click)="onAddStudentLesson()"></button>
+                            [routerLink]="['studentlesson',l.idlesson,l.title]" (click)="onAddStudentLesson()"></button>
 
                     </div>
                     <div *ngIf="profileUser == 'student'" class="card-footer t-button-list-center">
