@@ -59,7 +59,7 @@ export class StudentLessonComponent implements OnInit{
   onDelStudent(iduser: any){
     this.lessonUser = ({ idlesson: this.idlesson, iduser: iduser });
     
-    console.log('student lesson - onDelStudent - lessonUser: ', this.lessonUser);
+    //console.log('student lesson - onDelStudent - lessonUser: ', this.lessonUser);
 
     this.srvLesson.delLessonStudent(this.lessonUser).subscribe(response => {
       this.messagePopup = response.message;

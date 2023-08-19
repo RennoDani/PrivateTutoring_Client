@@ -6,6 +6,7 @@ import { Ilevel } from 'src/app/_model/level.model';
 import { Itype } from 'src/app/_model/type.model';
 import { AuthenticationService } from 'src/app/_service/authentication.service';
 import { LessonService } from 'src/app/_service/lesson.service';
+import { PopupService } from 'src/app/_service/popup.service';
 
 @Component({
   selector: 'app-view-lesson',
@@ -21,7 +22,8 @@ export class ViewLessonComponent implements OnInit {
     private lessonSrv: LessonService,
     private authSrv: AuthenticationService,
     private router: Router,
-    private location: Location) 
+    private location: Location,
+    private popupSrv: PopupService) 
     {
       this.profileUser = authSrv.getProfileUser();
       this.idUser = authSrv.getIdUser();
@@ -41,6 +43,8 @@ export class ViewLessonComponent implements OnInit {
   searchType: any = '';
   searchLevel: any = '';
   //searchStudent: any = '';
+
+  messagePopup: string = '';
 
   ngOnInit(): void {
     this.onGet();
@@ -78,6 +82,17 @@ export class ViewLessonComponent implements OnInit {
     })
 
   }
+
+  onDelete(id: any, namefile: any){
+    this.lessonSrv.delLesson(id, namefile.substring(10)).subscribe(response => {
+      this.messagePopup = response.message;
+      this.popupSrv.setMessage(response.message);
+
+    });
+    this.messagePopup = '';
+    this.onGet();
+  }
+
   onEdit() {
     this.displayLesson = false;
     this.displayStudent = false;

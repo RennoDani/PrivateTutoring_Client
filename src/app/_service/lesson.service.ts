@@ -32,6 +32,9 @@ export class LessonService {
     return this.http.get<Ilesson[]>(`${this.apiUrl}/Lesson/` + id);
   }
 
+  delLesson(idlesson: any, namepdf: any): Observable<any>{
+    return this.http.delete(`${this.apiUrl}/Lesson/${idlesson}/${namepdf}`);
+  }
 
   //Student
   getAllUserLesson(iduser: any): Observable<Ilesson[]> {

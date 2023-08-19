@@ -56,7 +56,8 @@
                     </div>
                     <div *ngIf="profileUser == 'admin'" class="card-footer t-button-list-center">
                         <!-- delete lesson -->
-                        <button class="btn btn-outline-danger bi bi-trash3 t-button-list-margin" type="button"></button>
+                        <button class="btn btn-outline-danger bi bi-trash3 t-button-list-margin" type="button"
+                            (click)="onDelete(l.idlesson, l.filepath)"></button>
 
                         <!-- edit lessons -->
                         <button class="btn btn-outline-success bi bi-pencil-square t-button-list-margin" type="button"
@@ -75,15 +76,16 @@
                 </div>
 
             </div>
+            <div>
+                <app-popup *ngIf="messagePopup !== ''"></app-popup>
+            </div>
 
         </div>
         <div class="row mt-1">
             <div class="col pagination-container t-form-pagination">
-                <button class="btn btn-secondary bi bi-arrow-left-square" type="button"
-                    (click)="prevPage()"></button>
+                <button class="btn btn-secondary bi bi-arrow-left-square" type="button" (click)="prevPage()"></button>
                 <span> {{currentPage}} </span>
-                <button class="btn btn-secondary bi bi-arrow-right-square" type="button"
-                    (click)="nextPage()"></button>
+                <button class="btn btn-secondary bi bi-arrow-right-square" type="button" (click)="nextPage()"></button>
             </div>
         </div>
     </div>
